@@ -282,7 +282,7 @@ html {
 
 body {
   cursor: crosshair;
-  font: var(--p);
+  font: 'ArialReg', sans-serif;
   color: #333333;
   width: 100dvw;
   min-width: 320px;
@@ -370,7 +370,7 @@ h1 {
 
 .site-nav-link {
   pointer-events: auto; /* but the links are clickable */
-  font-family: 'Arial', sans-serif;
+  font-family: 'ArialReg', sans-serif;
   font-size: 0.875rem;
   color: #333;
   text-decoration: none;
@@ -387,7 +387,6 @@ button.site-nav-link {
   background: none;
   border: none;
   padding: 0;
-  font: inherit;
   cursor: crosshair !important;
 }
 
@@ -421,7 +420,6 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
