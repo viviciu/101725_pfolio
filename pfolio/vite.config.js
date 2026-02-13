@@ -11,6 +11,7 @@ export default defineConfig({
         play: resolve(__dirname, "play/index.html"),
         vogue: resolve(__dirname, "vogue/index.html"),
         sketches: resolve(__dirname, "sketches/index.html"),
+        c4d: resolve(__dirname, "c4d/index.html"),
       },
     },
   },

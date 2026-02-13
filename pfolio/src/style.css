@@ -511,3 +511,8 @@ button:focus-visible {
 html, body, button, input, textarea, select, [role="button"] {
   cursor: crosshair !important;
 }
+
+/* Allow modal media to override the crosshair */
+#modal-media {
+  cursor: e-resize !important;
+}

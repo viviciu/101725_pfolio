@@ -25,14 +25,22 @@ import './style.css'
 
 
 // Tearsheet preview functionality
+// Cover images are defined in coverImages.js — edit that file to change them.
+import { coverImages } from "./coverImages.js";
+
 const items = document.querySelectorAll(".tearsheets-list li");
 const preview = document.querySelector(".tearsheet-preview");
 
 items.forEach((item) => {
+  const link = item.querySelector("a");
+  const href = link ? link.getAttribute("href") : null;
+  const img = coverImages[href] || item.getAttribute("data-image");
+
   item.addEventListener("mouseenter", () => {
-    const img = item.getAttribute("data-image");
-    preview.style.backgroundImage = `url(${img})`;
-    preview.classList.add("visible");
+    if (img) {
+      preview.style.backgroundImage = `url(${img})`;
+      preview.classList.add("visible");
+    }
   });
   item.addEventListener("mouseleave", () => {
     preview.classList.remove("visible");
