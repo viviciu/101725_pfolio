@@ -92,7 +92,7 @@ export default {
         SFProDisplay: ["SFProDisplay"],
         LabMono: ["LabMono"],
         MonumentGroteskSemiMono: ["MonumentGroteskSemiMono"],
-        ABCDiatypeReg: ["ABC-Diatype-Reg"],
+        ABCDiatypeReg: ["ABCDiatypeReg"],
         Arial: ["ArialReg"],
         ArialLightReg: ["ArialLightReg"],
         // MonumentGroteskSemiMonoThin: ["MonumentGroteskSemiMonoThin"],

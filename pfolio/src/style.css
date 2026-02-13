@@ -23,8 +23,8 @@
 
   /* ABC Diatype Reg */
   @font-face {
-    font-family: 'ABC-Diatype-Reg';
-    src: url(/public/fonts/ABC-Diatype/ABCDiatype-Regular-Trial.woff2) format('woff2');
+    font-family: 'ABCDiatypeReg';
+    src: url("/public/fonts/ABCDiatype-Regular-Trial.woff2") format('woff2');
     font-weight: 400;
     font-style: normal;
   }

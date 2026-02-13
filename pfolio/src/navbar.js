@@ -8,8 +8,8 @@ export function initNavbar() {
   const nav = document.createElement("nav");
   nav.className = "site-nav";
   nav.innerHTML = `
-    <a href="/" class="site-nav-link font-ABC-Diatype-Reg">index</a>
-    <button id="info-btn" class="site-nav-link font-ABC-Diatype-Reg" type="button">info</button>
+    <a href="/" class="site-nav-link font-ABCDiatypeReg">index</a>
+    <button id="info-btn" class="site-nav-link font-ABCDiatypeReg" type="button">info</button>
   `;
   document.body.prepend(nav);
 
