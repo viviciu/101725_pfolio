@@ -8,8 +8,8 @@ export function initNavbar() {
   const nav = document.createElement("nav");
   nav.className = "site-nav";
   nav.innerHTML = `
-    <a href="/" class="site-nav-link">index</a>
-    <button id="info-btn" class="site-nav-link" type="button">info</button>
+    <a href="/" class="site-nav-link font-ABC-Diatype-Reg">index</a>
+    <button id="info-btn" class="site-nav-link font-ABC-Diatype-Reg" type="button">info</button>
   `;
   document.body.prepend(nav);
 
@@ -25,20 +25,18 @@ export function initNavbar() {
     <div class="absolute inset-0 bg-white/20" id="about-backdrop"></div>
 
     <!-- centered content -->
-    <div class="font-ABCDiatypeReg text-black grid grid-cols-6 grid-rows-5 gap-[15px] mx-[32px] my-[13px] relative z-10" id="about-content">
+    <div class="font-ABCDiatypeReg text-black grid grid-cols-6 grid-rows-5 text-sm gap-[15px] mx-[32px] my-[13px] relative z-10" id="about-content">
 
       
 
       <!-- bio -->
       <div class="col-start-1 col-span-3 row-span-1 text-sm">
-        I'm a a multidisciplinary designer studying Industrial Design and HCI at Carnegie Mellon University.
-        I've been into image-making for a pretty long time, and my fascination with light lead me to love visualization and CGI.
-        In ID, I'm interested in subjects around calm technology, and everyday carry items that make life just a little more delightful.
-        <br /><br />
-        I enjoy learning new processes that force me to think differently, which has lead me to become a chronic side quester: <br />
-        I've worked on websites, directed a spectulative app promotion film, and worked at an AI startup aiming to spark more authentic human connection.
-        <br /><br />
-        I come from Baltimore &gt; now based in Pittsburgh.
+I'm a a multidisciplinary designer studying Industrial Design and HCI at Carnegie Mellon University. I've been into image-making for a pretty long time, and my fascination with light lead me to love visualization and CGI. In ID, I'm interested in subjects around calm technology, and everyday carry items that make life just a little more delightful.
+<br /><br />
+I enjoy learning new processes that force me to think differently, which has lead me to become a chronic side quester:
+I've worked on websites, directed a spectulative app promotion film, and worked at an AI startup aiming to spark more authentic human connection.
+<br /><br />
+I come from Baltimore > now based in Pittsburgh.
       </div>
 
       <!-- experience -->
