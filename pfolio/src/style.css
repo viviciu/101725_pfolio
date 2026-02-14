@@ -507,6 +507,12 @@ button:focus-visible {
   opacity: 1;
 }
 
+.tearsheet-preview-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Global crosshair cursor */
 html, body, button, input, textarea, select, [role="button"] {
   cursor: crosshair !important;
