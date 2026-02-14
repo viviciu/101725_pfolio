@@ -1,29 +1,195 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
-@font-face {
-  font-family: "ABCDiatype";
-  src: url("/fonts/ABCDiatype-Regular-Trial.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+/* ═══════════════════════════════════════════════════════════════
+   FONT FACES
+   ═══════════════════════════════════════════════════════════════ */
+@layer base {
+  /* Existing project fonts */
+  @font-face {
+    font-family: "ABCDiatype";
+    src: url("/fonts/ABCDiatype-Regular-Trial.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "ABCMonumentGroteskMono";
+    src: url("/fonts/ABCMonumentGroteskMono-Regular-Trial.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* ABC Diatype Reg */
+  @font-face {
+    font-family: 'ABCDiatypeReg';
+    src: url("/fonts/ABCDiatype-Regular-Trial.woff2") format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* SuisseWorks */
+  @font-face {
+    font-family: 'SuisseWorks';
+    src: url(../public/assets/fonts/suisseWorks/SuisseWorks-Regular-WebTrial.woff2) format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'SuisseWorks';
+    src: url(../public/assets/fonts/suisseWorks/SuisseWorks-RegularItalic-WebTrial.woff2) format('woff');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* Suisse */
+  @font-face {
+    font-family: 'Suisse';
+    src: url(../public/assets/fonts/Suiss/SuisseIntlTrial-Book.otf) format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Suisse';
+    src: url(../public/assets/fonts/Suiss/SuisseIntlTrial-Medium.otf) format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Suisse';
+    src: url(../public/assets/fonts/Suiss/SuisseIntlTrial-SemiBold.otf) format('opentype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Suisse';
+    src: url(../public/assets/fonts/Suiss/SuisseIntlTrial-Bold.otf) format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* Helvetica Neue */
+  /* THIN */
+  @font-face {
+    font-family: 'Helvetica-Neue';
+    src: url(../public/assets/fonts/helvetica/HelveticaNeueThin.otf) format('opentype');
+    font-weight: 100;
+    font-style: normal;
+  }
+  /* LIGHT */
+  @font-face {
+    font-family: 'Helvetica-Neue';
+    src: url(../public/assets/fonts/helvetica/HelveticaNeueLight.otf) format('opentype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  /* NORMAL */
+  @font-face {
+    font-family: 'Helvetica-Neue';
+    src: url(../public/assets/fonts/helvetica/HelveticaNeueRoman.otf) format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  /* MEDIUM */
+  @font-face {
+    font-family: 'Helvetica-Neue';
+    src: url(../public/assets/fonts/helvetica/HelveticaNeueMedium.otf) format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  /* BOLD */
+  @font-face {
+    font-family: 'Helvetica-Neue';
+    src: url(../public/assets/fonts/helvetica/HelveticaNeueBold.otf) format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  /* BLACK */
+  @font-face {
+    font-family: 'Helvetica-Neue';
+    src: url(../public/assets/fonts/helvetica/HelveticaNeueBlack.otf) format('opentype');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  /* SF Pro Display */
+  @font-face {
+    font-family: 'SFProDisplay';
+    src: url(../public/assets/fonts/SFProDisplay/SF-Pro-Display-Black.otf) format('opentype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'SFProDisplay';
+    src: url(../public/assets/fonts/SFProDisplay/SF-Pro-Display-Bold.otf) format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'SFProDisplay';
+    src: url(../public/assets/fonts/SFProDisplay/SF-Pro-Display-Medium.otf) format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'SFProDisplay';
+    src: url(../public/assets/fonts/SFProDisplay/SF-Pro-Display-Regular.otf) format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'SFProDisplay';
+    src: url(../public/assets/fonts/SFProDisplay/SF-Pro-Display-Light.otf) format('opentype');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  /* Mono Fonts */
+  @font-face {
+    font-family: 'InputMono';
+    src: url(../public/assets/fonts/InputMono/InputMono-Regular.ttf) format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'LabMono';
+    src: url(../public/assets/fonts/labmono-regular-web.woff) format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'MonumentGroteskSemiMono';
+    src: url(../public/assets/fonts/ABCMonumentGroteskSemi-Mono-Regular-Trial.woff) format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'MonumentGroteskSemiMonoThin';
+    src: url(../public/assets/fonts/ABCMonumentGroteskSemi-Mono-Thin-Trial.woff) format('woff');
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  /* Arial */
+  @font-face {
+    font-family: 'ArialReg';
+    font-style: normal;
+    font-weight: normal;
+    src: url(../public/assets/fonts/Arial/ARIAL.woff), format('woff');
+  }
+  @font-face {
+    font-family: 'ArialLightReg';
+    font-style: normal;
+    font-weight: normal;
+    src: url(../public/assets/fonts/Arial/ARIALLGT.woff), format('woff');
+  }
+
 }
 
-@font-face {
-  font-family: "ABCMonumentGroteskMono";
-  src: url("/fonts/ABCMonumentGroteskMono-Regular-Trial.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Reset */
-*{
-  
-  box-sizing: border-box;
-  /* margin: 0;
-  padding: 0; */
-}
-
+/* ═══════════════════════════════════════════════════════════════
+   ROOT VARIABLES
+   ═══════════════════════════════════════════════════════════════ */
 :root {
   /* Vite Init */
   font-family: system-ui, Helvetica, Arial, sans-serif;
@@ -32,35 +198,129 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Variables */
+  /* Font Family Variables */
   --ff: "ABCDiatype", sans-serif;
   --ff-mono: "ABCMonumentGroteskMono", monospace;
   --p: 1rem/1.5em var(--ff);
   --h1: 1rem/1.5em var(--ff-mono);
+
+  /* Typography Variables */
+  --font-h1: "Arial";
+  --fs-h1: 3.875rem;
+  --lh-h1: 1.625rem;
+  --ls-h1: -0.13019rem;
+
+  --fs-cap: 14px; /* captions, used to be 0.8rem */
+  --fs-p: 1.2rem;
+  --lh-p: 1.625rem;
+  --lh-cap: 0.9rem;
+  --lh-pMobile: 1.7rem;
+  --lh-p3: 1.5rem; /* leading for serif paragraph text */
+
+  /* paragraph for mile 10 */
+  /* letter spacing */
+  --ls-p2: -0.012em;
+  --lh-p2: 1.28;
+
+  --fs-callout: 3.1925rem;
+  --lh-callout: 3.25rem;
+  --lh-callout2: 4rem;
+  --w-callout: 300;
+
+  /* Colors */
+  --mwsGrey: #d4d4d4;
+  --offBlack: #333333;
+  --offBlack1: #373737;
+  --offBlack2: #515151;
+  --offBlack3: #939393;
 }
 
-a {
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.87);
-  text-decoration: inherit;
+/* ═══════════════════════════════════════════════════════════════
+   RESET & BASE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+/* ::selection {
+  background: transparent;
+  color: #0000ff;
 }
-a:hover {
-  color: rgb(255, 255, 255, 0.5);
+::-moz-selection {
+  background: transparent;
+  color: #0000ff;
+} */
+::selection {
+  background: #212121;
+  color: #ffffff;
 }
+::-moz-selection {
+  background: transparent;
+  color: #0000ff;
+}
+
+* {
+  box-sizing: border-box;
+  /* margin: 0;
+  padding: 0; */
+}
+
+/* PREVENTS HORIZONTAL SCROLLING ISSUE ON MOBILE (/play modal) */
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 16px;
+  touch-action: auto;
+}
+
+
 
 body {
   cursor: crosshair;
-  font: var(--p);
-  
+  font: 'ArialReg', sans-serif;
+  color: #333333;
+  width: 100dvw;
   min-width: 320px;
+  height: 100%;
   min-height: 100vh;
+  background: #fafafa; /* bg used to be #151515, #080808 */
+  border-color: #3b3b3b;
+  user-select: none;
+  touch-action: auto;
+}
+
+/* Custom floating scrollbar for WebKit browsers */
+body::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 8px 0;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.4);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.6);
+}
+
+/* Floating scrollbar for Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(150, 150, 150, 0.4) transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
@@ -76,6 +336,64 @@ h1 {
   text-align: center;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   NAVBAR
+   ═══════════════════════════════════════════════════════════════ */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  pointer-events: none; /* let clicks pass through the bar itself */
+}
+
+/* Frosted-glass gradient: blurry at top → clear at bottom */
+.site-nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;               /* how far the blur extends downward */
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(250,250,250,0.6), rgba(250,250,250,0) 100%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0) 100%);
+  pointer-events: none;
+}
+
+.site-nav-link {
+  pointer-events: auto; /* but the links are clickable */
+  font-family: 'ArialReg', sans-serif;
+  font-size: 0.875rem;
+  color: #333;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.3s ease;
+}
+
+.site-nav-link:hover {
+  color: #999;
+}
+
+/* Reset button appearance so the info button looks like a link */
+button.site-nav-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: crosshair !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COMPONENTS
+   ═══════════════════════════════════════════════════════════════ */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -103,7 +421,6 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
@@ -114,25 +431,61 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* ═══════════════════════════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+.scrim-max-width {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  position: relative;
+  max-width: 1120px;
+}
+
+/* FOR PLAY PAGE — MAKE CLICK A SMOOTH TRANSITION TO GREY */
+.clicked {
+  color: white;
+  transition: color 0.5s ease;
+}
+
+.checkbox-label-checked {
+  color: #d4d4d4; /* aka mwsGrey in tailwind.config */
+  transition: color 0.5s ease;
+}
+
+.checkbox-label-checked:hover {
+  color: #333333; /* Aka offblack in tailwind.config */
+}
+
+/* FONT ISSUE ON WORK */
+.font-custom {
+  font-family: 'InputMono', monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MEDIA QUERIES
+   ═══════════════════════════════════════════════════════════════ */
+@layer base {
   :root {
     color: #1f1f1f;
     background-color: #ffffff;
   }
-  a:hover {
-    color: rgba(236, 236, 236, 0.3);
-  }
-  a{
+  a {
     cursor: pointer;
     color: #1f1f1f;
+    font-weight: 500;
+    color: rgba(33, 33, 33, 0.87);
+    text-decoration: inherit;
   }
-  
-}
+    a:hover {
+      color: rgba(146, 146, 146, 0.3);
+    }
+  }
 
-/* Tearsheets */
 
+/* ═══════════════════════════════════════════════════════════════
+   TEARSHEETS
+   ═══════════════════════════════════════════════════════════════ */
 .tearsheets-list li {
-
   /* show pointer for interactive list items */
   user-select: none;
   -webkit-user-select: none;
@@ -141,19 +494,31 @@ button:focus-visible {
 }
 
 .tearsheet-preview {
-
   position: fixed;
-  /* so it can overlap everything */
-  
-  
   background-size: cover;
   background-position: center;
   opacity: 0;
   pointer-events: none;
-  /* so it doesn’t block hovers */
+  /* so it doesn't block hovers */
   transition: opacity 0.2s ease;
 }
 
 .tearsheet-preview.visible {
   opacity: 1;
+}
+
+.tearsheet-preview-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Global crosshair cursor */
+html, body, button, input, textarea, select, [role="button"] {
+  cursor: crosshair !important;
+}
+
+/* Allow modal media to override the crosshair */
+#modal-media {
+  cursor: e-resize !important;
 }

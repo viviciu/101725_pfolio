@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Play — experimental playground" />
+    <title>Viviana Staicu</title>
+    <link rel="icon" type="image/svg+xml" href="/whitecircle.svg" />
+    <link rel="icon" type="image/png" href="/whitecircle.png" />
+</head>
+<body>
+
+  <main class="m-1">
+    <section class="flex flex-col mx-4">
+
+      <!-- RADIO BUTTONS -->
+      <article id="filters" class="
+        lg:mb-[11vh] mb-[2.5rem] mt-[11vh]
+        flex flex-wrap sm:flex-row
+        lg:text-h1 md:text-[2.75rem] text-[1.6rem] tracking-tight
+        lg:leading-[3.7rem]
+        leading-[1.6rem]
+        font-h1 font-medium
+      ">
+        <div>
+          <input type="radio" name="category" id="all" class="mr-1 appearance-none" checked />
+          <label class="checkbox-label-checked clicked" for="all" data-category="">All,</label>
+        </div>
+        <div>
+          <input type="radio" name="category" id="code" class="mr-1 appearance-none" />
+          <label class="checkbox-label-checked" for="code" data-category="code">Code,</label>
+        </div>
+        <div>
+          <input type="radio" name="category" id="photo" class="mr-1 appearance-none" />
+          <label class="checkbox-label-checked" for="photo" data-category="photo">Photo,</label>
+        </div>
+        <div>
+          <input type="radio" name="category" id="video" class="mr-1 appearance-none" />
+          <label class="checkbox-label-checked" for="video" data-category="video">Cinematography,</label>
+        </div>
+        <div>
+          <input type="radio" name="category" id="graphic" class="mr-1 appearance-none" />
+          <label class="checkbox-label-checked" for="graphic" data-category="graphic">Graphic,</label>
+        </div>
+        <div>
+          <input type="radio" name="category" id="3d" class="mr-1 appearance-none" />
+          <label class="checkbox-label-checked" for="3d" data-category="3d">3D,</label>
+        </div>
+        <div>
+          <input type="radio" name="category" id="motion" class="mr-1 appearance-none" />
+          <label class="checkbox-label-checked" for="motion" data-category="motion">Motion,</label>
+        </div>
+        <div>
+          <input type="radio" name="category" id="product" class="mr-1 appearance-none" />
+          <label class="checkbox-label-checked" for="product" data-category="product">Product,</label>
+        </div>
+        <div>
+          <input type="radio" name="category" id="sketch" class="mr-1 appearance-none" />
+          <label class="checkbox-label-checked" for="sketch" data-category="sketch">Sketch</label>
+        </div>
+      </article>
+
+      <!-- GRID -->
+      <article id="grid" class="w-full mx-auto grid grid-cols-2 gap-[0.2rem] sm:gap-[1rem] sm:grid-cols-5 lg:grid-cols-5 place-content-center">
+        <!-- items rendered by JS -->
+      </article>
+
+    </section>
+
+    <!-- MODAL -->
+    <div id="modal" class="hidden fixed inset-0 bg-white bg-opacity-85 justify-start items-start z-50">
+      <div class="relative m-[0.6rem] cursor-pointer" id="modal-content">
+        <!-- modal media injected by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <script type="module" src="/src/play.js"></script>
+</body>
+</html>
