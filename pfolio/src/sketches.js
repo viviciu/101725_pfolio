@@ -1,5 +1,6 @@
 import "./style.css";
-import "./navbar.js";
+import { initNavbar } from "./navbar.js";
+initNavbar();
 import { sketchbookItems } from "./sketchbookItems.js";
 
 const grid = document.getElementById("sketchbook-grid");

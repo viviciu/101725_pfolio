@@ -3,12 +3,12 @@
  * Injects a fixed top nav with "index" link and "info" button
  * that toggles a full-screen about overlay.
  */
-export function initNavbar() {
+export function initNavbar({ showIndex = true } = {}) {
   /* ── nav bar ── */
   const nav = document.createElement("nav");
   nav.className = "site-nav";
   nav.innerHTML = `
-    <a href="/" class="site-nav-link font-ABCDiatypeReg">index</a>
+    ${showIndex ? '<a href="/" class="site-nav-link font-ABCDiatypeReg">index</a>' : ''}
     <button id="info-btn" class="site-nav-link font-ABCDiatypeReg" type="button">info</button>
   `;
   document.body.prepend(nav);
@@ -159,5 +159,3 @@ I come from Baltimore > now based in Pittsburgh.
     }
   });
 }
-
-initNavbar();
