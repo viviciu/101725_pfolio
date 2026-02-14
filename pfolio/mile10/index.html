@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -9,6 +9,14 @@
     <link rel="icon" type="image/png" href="/whitecircle.png" />
 </head>
 <body>
+
+  <!-- SIDEBAR -->
+  <nav class="hidden md:flex fixed left-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-3">
+    <a href="#context" class="font-['ABCDiatypeReg'] text-[0.875rem] tracking-[0.01em] text-[#333] hover:text-[#999] transition-colors duration-300 no-underline">context</a>
+    <a href="#features" class="font-['ABCDiatypeReg'] text-[0.875rem] tracking-[0.01em] text-[#333] hover:text-[#999] transition-colors duration-300 no-underline">features</a>
+    <a href="#research-branding" class="font-['ABCDiatypeReg'] text-[0.875rem] tracking-[0.01em] text-[#333] hover:text-[#999] transition-colors duration-300 no-underline">research + branding</a>
+    <a href="#process" class="font-['ABCDiatypeReg'] text-[0.875rem] tracking-[0.01em] text-[#333] hover:text-[#999] transition-colors duration-300 no-underline">process</a>
+  </nav>
 
   <main class="block overflow-x-hidden px-2 md:px-4 font-['Arial'] text-base text-[#121212] antialiased">
 
@@ -50,7 +58,7 @@
 
       <div class="p-12"></div>
 
-      <div class="text-center mx-0 md:mx-[-30%] text-[1.25rem] md:text-[1.687rem] pt-10 leading-[1.35] md:leading-[1.6] tracking-[-0.01em]">
+      <div id="context" class="text-center mx-0 md:mx-[-30%] text-[1.25rem] md:text-[1.687rem] pt-10 leading-[1.35] md:leading-[1.6] tracking-[-0.01em] scroll-mt-20">
         Over 45% of U.S undergrads meet Substance Use Disorder criteria, yet only 5% seek help.
       </div>
 
@@ -74,8 +82,8 @@
         </div>
       </div>
 
-    
-      <div class="w-1/2 mx-auto">
+      <div class="mx-[5%]">
+      <div class="w-[50%] mx-auto">
           <img
             src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/mile10/comp_tree-rings.png.webp"
             alt="icon sketches"
@@ -84,60 +92,65 @@
             class="w-full h-auto"
           />
         </div>
+  <!-- the discs and labels -->
+   
+    <div class="w-full">
+      <img
+        src="/imgs/edit-thediscs.png"
+        alt="icon sketches"
+        loading="lazy"
+        decoding="async"
+        class="w-full h-auto"
+      />
+    </div>
+    <!-- the labels -->
+    <div class="flex gap-2  mt-[-2rem]">
+      <div class="flex-1 text-center">
+        one week
+      </div>
+      <div class="flex-1 text-center">
+        one month
+      </div>
+      <div class="flex-1 text-center">
+        three months
+      </div>
+      <div class="flex-1 text-center">
+        six months
+      </div>
+      <div class="flex-1 text-center">
+        one year
+      </div>
+    </div>
+   </div>
         
-        
-        <div class="w-full mx-auto">
-          <img
-            src="/imgs/edit-thediscs.png"
-            alt="icon sketches"
-            loading="lazy"
-            decoding="async"
-            class="w-full h-auto"
-          />
-        </div>
-        <div class="flex gap-2 w-full mt-[-2rem]">
-          <div class="flex-1 text-center">
-            one week
-          </div>
-          <div class="flex-1 text-center">
-            one month
-          </div>
-          <div class="flex-1 text-center">
-            three months
-          </div>
-          <div class="flex-1 text-center">
-            six months
-          </div>
-          <div class="flex-1 text-center">
-            one year
-          </div>
-        </div>
       
     </div>
 
       
-      <div class="text-left font-['Arial'] text-[0.925rem] md:text-[1.125rem] leading-[1.35] md:leading-[1.5] pt-[10rem] mx-[30%]">
+      <div class="text-left font-['Arial'] text-[0.925rem] md:text-[1.125rem] leading-[1.35] md:leading-[1.5] mx-[28%] mt-[5rem]">
         Inspired by how tree rings measure growth, Mile 10 etches users sobriety progress into a set of Milestone Discs.
       </div>
 
     
 
     <!-- FEATURES -->
-    <div class="pt-12 font-['Arial'] text-[0.925rem] md:text-[1.125rem] leading-[1.35] md:leading-[1.5] mx-3 md:mx-[30%]">
+    <div id="features" class="pt-12 font-['Arial'] text-[0.925rem] md:text-[1.125rem] leading-[1.35] md:leading-[1.5] mx-3 md:mx-[30%] scroll-mt-20">
 
-      <div class="text-center mx-0 md:mx-[-30%] text-[1.25rem] md:text-[1.687rem] pb-12 pt-40 leading-[1.35] md:leading-[1.6] ">
+      <div class="text-center mx-0 md:mx-[-30%] text-[1.25rem] md:text-[1.687rem] pb-2 pt-40 leading-[1.35] md:leading-[1.6] ">
         pledge. plug. etch.
       </div>
-      
-<!-- FULL DESCRIPTION -->
-      <!-- <div class="text-left pt-12">
+    </div>
+    <div class="pt-12 font-['Arial'] text-[0.925rem] md:text-[1.125rem] leading-[1.35] md:leading-[1.5] mx-3 md:mx-[28%]">
+      <div class="text-left pt-2">
         When you feel a craving, spin the disc.
-        <br /><br />
-        Mile 10 permanently, physically etches users' sobriety progress into a set 'Milestone Disc' as the user spins it in its case via a nib. Upon reaching the sobriety milestone, users can preserve the disc as a celebration of their growth and reminder of their resilience.
-      </div> -->
+      </div>
+      <div class="text-left pt-4">
+  
+        Mile 10 permanently, physically etches users' sobriety progress into a Disc as they spin it when they have a craving. Each scratch becomes tangible evidence of the strength given when resisting the urge to smoke. The disc is earned once a sobriety milestone is reached, and users can preserve it as a celebration of their growth and reminder of their resilience.
+      </div>
     </div>
 
-    <div class="w-[70%] md:w-[25%] mx-auto">
+    <div class="w-[70%] md:w-[25%] mx-auto pt-12">
       <img
         src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/mile10/edit-DSDFSDFX.jpg"
         alt="disc"
@@ -155,6 +168,8 @@
       </div>
       <div class="text-left">
         As you spin it, the nib etches a ring. Each scratch is evidence of the visible strength you gave when resisting the urge to smoke.
+
+        Mile 10 permanently, physically etches users' sobriety progress into a set 'Milestone Disc' as the user spins it in its case via a nib. Upon reaching the sobriety milestone, users can preserve the disc as a celebration of their growth and reminder of their resilience.
       </div>
     </div>
 
@@ -170,6 +185,7 @@
       />
       <div class="pt-2 text-center font-['Arial'] text-[0.75rem] md:text-[.9rem] text-gray-300">nib, in orange</div>
     </div>
+    
 
     <div class="pt-12 font-['Arial'] text-[0.925rem] md:text-[1.125rem] leading-[1.35] md:leading-[1.5] mx-3 md:mx-[28%]">
       <div class="text-left">
@@ -234,7 +250,7 @@
       </div>
     </div>
 
-    <div class="w-[90%] md:w-[70%] mx-auto pt-40">
+    <div id="research-branding" class="w-[90%] md:w-[30%] mx-auto pt-40 scroll-mt-20">
       <img
         src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/mile10-process/comp_intro2.jpeg.webp"
         alt="OEM brand extension study"
@@ -249,14 +265,15 @@
 
     <div class="w-[70%] md:w-[30%] mx-auto pt-40">
       <img
-        src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/mile10-process/comp_edit-gfhsdaf.jpg.webp"
-        alt="disc case detail"
+        src="/imgs/cases.png"
+        alt="disc case packaging"
         width="500"
         height="500"
         loading="lazy"
         decoding="async"
         class="w-full h-auto"
       />
+      <div class="pt-2 text-center font-['Arial'] text-[0.75rem] md:text-[.9rem] text-gray-300">items arrive in a case.</div>
     </div>
 
     <div class="pt-12 font-['Arial'] text-[0.925rem] md:text-[1.125rem] leading-[1.35] md:leading-[1.5] mx-3 md:mx-[28%]">
@@ -267,7 +284,7 @@
       </div>
     </div>
 
-    <div class="w-[70%] md:w-[30%] mx-auto pt-40 gap-2">
+    <div class="w-[70%] md:w-[24%] mx-auto pt-40 gap-2">
       <video controls autoplay loop muted playsinline>
         <source
           src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/mile10-process/comp_IMG_3854.MOV.webm"
@@ -357,7 +374,7 @@
     </div>
 
     <!-- PROCESS -->
-    <div class="pt-40 text-center">
+    <div id="process" class="pt-40 text-center scroll-mt-10">
       <a href="https://drive.google.com/file/d/1B6qURWkGYWRig1GnrVh18hK8Q7n6Pm2q/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-center block underline">Full Sketchbook PDF</a>
       <a href="https://docs.google.com/document/d/1bxIB3USA6xnIPXkUN-zVusBmKzxAHLrV3jREtLD_1-k/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-center block underline">Design proposal, research protocol, supporting documentation</a>
     </div>
