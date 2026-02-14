@@ -12,10 +12,12 @@ export const coverImages = {
   },
   "/mile10/":
     "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/mile10/coverimg-alpha-crop.png",
-  "/c4d/":
-    "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/mile10/IMG_4629.jpg",
+  "/c4d/": {
+    type: "video",
+    src: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/c4d/2.7MB_COVER_comp_final-poppingPills.mov.webm"
+  },
   "/play/":
-    "/images/02.webp",
+    "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edited-00796-perry.jpg.webp",
   "/sketches/":
-    "/images/03.webp",
+"https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/sketches/vivi090.jpg",
 };

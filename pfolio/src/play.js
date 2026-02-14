@@ -1,5 +1,6 @@
 import "./style.css";
-import "./navbar.js";
+import { initNavbar } from "./navbar.js";
+initNavbar();
 import { items } from "./items.js";
 
 const grid = document.getElementById("grid");

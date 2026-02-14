@@ -1,2 +1,3 @@
 import './style.css'
-import './navbar.js'
+import { initNavbar } from './navbar.js'
+initNavbar()
