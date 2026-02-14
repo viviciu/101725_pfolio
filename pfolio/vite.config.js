@@ -8,6 +8,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
+        elysium: resolve(__dirname, "elysium/index.html"),
         play: resolve(__dirname, "play/index.html"),
         vogue: resolve(__dirname, "vogue/index.html"),
         sketches: resolve(__dirname, "sketches/index.html"),

@@ -1,2 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet"><circle fill="#E6E7E8" cx="18" cy="18" r="13"></circle></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <style>
+    circle { fill: #1f1f1f; }
+    @media (prefers-color-scheme: dark) {
+      circle { fill: #E6E7E8; }
+    }
+  </style>
+  <circle cx="18" cy="18" r="13"/>
+</svg>
