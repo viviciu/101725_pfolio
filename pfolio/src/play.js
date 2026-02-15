@@ -127,11 +127,17 @@ filters.addEventListener("click", (e) => {
   renderGrid();
 });
 
-// Grid clicks → open modal
+// Grid clicks → open modal (or navigate if the item has a link)
 grid.addEventListener("click", (e) => {
   const itemEl = e.target.closest(".item[data-index]");
   if (!itemEl) return;
-  openModal(Number(itemEl.dataset.index));
+  const index = Number(itemEl.dataset.index);
+  const item = filteredItems[index];
+  if (item.link) {
+    window.location.href = item.link;
+    return;
+  }
+  openModal(index);
 });
 
 // Modal backdrop click → close
