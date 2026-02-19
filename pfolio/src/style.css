@@ -176,14 +176,9 @@
     font-family: 'ArialReg';
     font-style: normal;
     font-weight: normal;
-    src: url(../public/assets/fonts/Arial/ARIAL.woff), format('woff');
+    src: url("/fonts/Arial/ARIAL.woff"), format('woff');
   }
-  @font-face {
-    font-family: 'ArialLightReg';
-    font-style: normal;
-    font-weight: normal;
-    src: url(../public/assets/fonts/Arial/ARIALLGT.woff), format('woff');
-  }
+  
 
 }
 

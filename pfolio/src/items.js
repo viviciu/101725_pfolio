@@ -6,20 +6,8 @@ export const items = [
     fileType: "webp",
   },
   {
-    id: "waswaswas-zurich",
-    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC09049-2.jpg.webp",
-    category: "photo",
-    fileType: "webp",
-  },
-  {
-    id: "houses-basel",
-    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC09069-3.jpg.webp",
-    category: "photo",
-    fileType: "webp",
-  },
-  {
-    id: "shoe",
-    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC09066.jpg.webp",
+    id: "fighter",
+    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC09052-2.jpg.webp",
     category: "photo",
     fileType: "webp",
   },
@@ -29,6 +17,27 @@ export const items = [
     category: "photo",
     fileType: "webp",
   },
+  
+  {
+    id: "houses-basel",
+    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC09069-3.jpg.webp",
+    category: "photo",
+    fileType: "webp",
+  },
+  {
+    id: "elysium-embrace",
+    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/030425/act-embrace-900.webm",
+    category: "code",
+    fileType: "webm",
+    link: "/elysium/",
+  },
+  {
+    id: "shoe",
+    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC09066.jpg.webp",
+    category: "photo",
+    fileType: "webp",
+  },
+  
   {
     id: "hand",
     url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC09047-2.jpg.webp",
@@ -41,12 +50,7 @@ export const items = [
     category: "photo",
     fileType: "webp",
   },
-  {
-    id: "fighter",
-    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC09052-2.jpg.webp",
-    category: "photo",
-    fileType: "webp",
-  },
+  
   {
     id: "visionProImg",
     url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC07941.jpg.webp",
@@ -59,10 +63,11 @@ export const items = [
     category: "3d",
     fileType: "webp",
   },
+  
   {
-    id: "redRender-4BoardStool-01",
-    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-041125_render.jpg.webp",
-    category: "3d",
+    id: "waswaswas-zurich",
+    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC09049-2.jpg.webp",
+    category: "photo",
     fileType: "webp",
   },
   {
@@ -119,12 +124,7 @@ export const items = [
     category: "photo",
     fileType: "webp",
   },
-  {
-    id: "meSanDiego",
-    url: "/compressed_edit-03512-3.webp",
-    category: "photo",
-    fileType: "webp",
-  },
+  
   {
     id: "isdsdsdk",
     url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/compressed_edit-03827.jpg.webp",
