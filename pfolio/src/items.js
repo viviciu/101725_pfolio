@@ -6,6 +6,12 @@ export const items = [
     fileType: "webp",
   },
   {
+    id: "oem-pebbles",
+    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/twoPebbles.png",
+    category: "photo",
+    fileType: "webp",
+  },
+  {
     id: "fighter",
     url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC09052-2.jpg.webp",
     category: "photo",
