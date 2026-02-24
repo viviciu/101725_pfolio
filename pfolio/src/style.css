@@ -481,17 +481,36 @@ button:focus-visible {
    TEARSHEETS
    ═══════════════════════════════════════════════════════════════ */
 .tearsheets-list li {
-  /* show pointer for interactive list items */
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
 }
 
+.label-meta {
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 0.75rem;
+  color: #b0b0b0;
+  white-space: nowrap;
+  width: 10rem;
+  flex-shrink: 0;
+  text-align: right;
+  margin-right: 2rem;
+  padding-right: 2rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.label-meta.visible {
+  opacity: 1;
+}
+
 .tearsheet-preview {
   position: fixed;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
   pointer-events: none;
   /* so it doesn't block hovers */
@@ -505,7 +524,7 @@ button:focus-visible {
 .tearsheet-preview-video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* Global crosshair cursor */

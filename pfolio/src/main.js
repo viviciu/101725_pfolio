@@ -39,6 +39,8 @@ items.forEach((item) => {
   const entry = coverImages[href] || item.getAttribute("data-image");
 
   item.addEventListener("mouseenter", () => {
+    const meta = item.querySelector(".label-meta");
+    if (meta) meta.classList.add("visible");
     if (!entry) return;
 
     // Video entry (e.g. Elysium)
@@ -70,6 +72,8 @@ items.forEach((item) => {
   });
 
   item.addEventListener("mouseleave", () => {
+    const meta = item.querySelector(".label-meta");
+    if (meta) meta.classList.remove("visible");
     preview.classList.remove("visible");
     const video = preview.querySelector("video");
     if (video) {

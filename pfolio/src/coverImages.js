@@ -7,11 +7,19 @@
  */
 export const coverImages = {
   "/mile10/":
-    "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/mile10/coverimg-alpha-crop.png",
+    "/imgs/comp_cover-02.png.webp",
   "/c4d/": {
     type: "video",
     src: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/c4d/2.7MB_COVER_comp_final-poppingPills.mov.webm"
   },
+  "/seaglass/": 
+    "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/twoPebbles.png"
+  ,
+  "/elysium/": {
+    type: "video",
+    src:"https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/030425/act-embrace-900.webm"
+  }
+  ,
   "/play/":
     "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edited-00796-perry.jpg.webp",
   "/sketches/":
