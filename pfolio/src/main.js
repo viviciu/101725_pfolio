@@ -30,6 +30,18 @@ initNavbar({ showIndex: false })
 // Cover images are defined in coverImages.js — edit that file to change them.
 import { coverImages } from "./coverImages.js";
 
+Object.values(coverImages).forEach((entry) => {
+  if (typeof entry === "object" && entry.type === "video") {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "video";
+    link.href = entry.src;
+    document.head.appendChild(link);
+  } else if (typeof entry === "string") {
+    new Image().src = entry;
+  }
+});
+
 const items = document.querySelectorAll(".tearsheets-list li");
 const preview = document.querySelector(".tearsheet-preview");
 
