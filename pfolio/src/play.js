@@ -82,12 +82,11 @@ function openModal(index) {
 
   // Attach left/right click navigation to the media element
   const el = document.getElementById("modal-media");
-  el.style.cursor = "e-resize";
 
   el.addEventListener("mousemove", (e) => {
     const half = el.clientWidth / 2;
     const x = e.clientX - el.getBoundingClientRect().left;
-    el.style.cursor = x > half ? "e-resize" : "w-resize";
+    el.style.setProperty("cursor", x > half ? "e-resize" : "w-resize", "important");
   });
 
   el.addEventListener("click", (e) => {
