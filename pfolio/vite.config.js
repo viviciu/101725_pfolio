@@ -13,6 +13,7 @@ export default defineConfig({
         mile10: resolve(__dirname, "mile10/index.html"),
         sketches: resolve(__dirname, "sketches/index.html"),
         c4d: resolve(__dirname, "c4d/index.html"),
+        fable: resolve(__dirname, "fable/index.html"),
       },
     },
   },

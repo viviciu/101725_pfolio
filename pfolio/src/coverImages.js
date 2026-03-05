@@ -18,6 +18,10 @@ export const coverImages = {
   "/elysium/": {
     type: "video",
     src:"https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/030425/act-embrace-900.webm"
+  },
+  "/fable/": {
+    type: "video",
+    src:"https://vstaicu-1.b-cdn.net/lg2026/cover-comp.mp4"
   }
   ,
   "/play/":
