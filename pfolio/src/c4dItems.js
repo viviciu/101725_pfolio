@@ -40,15 +40,41 @@ export const c4dItems = [
     fileType: "webp",
   },
   {
+    id: "spongBlueBounc-V4-FINAL.mov",
+    url: "https://vstaicu-1.b-cdn.net/c4d/102925_spongBlueBounc-V4-FINAL.mov",
+    fileType: "webp",
+  },
+  {
+    id: "",
+    url: "https://vstaicu-1.b-cdn.net/c4d/edit--5.jpg",
+    fileType: "webp",
+  },
+  {
+    id: "",
+    url: "https://vstaicu-1.b-cdn.net/c4d/edit--6.jpg",
+    fileType: "webp",
+  },
+  {
+    id: "",
+    url: "https://vstaicu-1.b-cdn.net/c4d/edit--7.jpg",
+    fileType: "webp",
+  },
+  {
+    id: "",
+    url: "https://vstaicu-1.b-cdn.net/c4d/aixtr_sand_78.jpg",
+    fileType: "webp",
+  },
+  // {
+  //   id: "",
+  //   url: "",
+  //   fileType: "webp",
+  // },
+  {
     id: "popping-pills-video",
     url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/c4d/2.7MB_COVER_comp_final-poppingPills.mov.webm",
     fileType: "webm",
   },
-  {
-    id: "crunchy",
-    url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/mile10/comp_crunchy.mp4.webm",
-    fileType: "webm",
-  },
+  
   {
     id: "houdini-balloon",
     url: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/c4d/comp_myfirsthoudinirender.mov.webm",
