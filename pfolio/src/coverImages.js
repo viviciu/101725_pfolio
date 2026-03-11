@@ -8,10 +8,11 @@
 export const coverImages = {
   "/mile10/":
     "/imgs/comp_cover-02.png.webp",
-  "/c4d/": {
-    type: "video",
-    src: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/c4d/2.7MB_COVER_comp_final-poppingPills.mov.webm"
-  },
+  "/c4d/":
+    // type: "video",
+    // src: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/c4d/2.7MB_COVER_comp_final-poppingPills.mov.webm"
+    "https://vstaicu-1.b-cdn.net/c4d/comp_edit-XRAY-SIDE-WHITE.jpg.webp"
+  ,
   "/seaglass/": 
     "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/twoPebbles.png"
   ,
@@ -21,9 +22,13 @@ export const coverImages = {
   },
   "/fable/": {
     type: "video",
-    src:"https://vstaicu-1.b-cdn.net/lg2026/cover-comp.mp4"
-  }
-  ,
+    src:"https://vstaicu-1.b-cdn.net/lg2026/final-act2scene4-carsblur-030926.mp4"
+    // src:"https://vstaicu-1.b-cdn.net/lg2026/cover-comp.mp4"
+  },
+  "/typographyAnimation/": {
+    type: "video",
+    src: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/cmini/comp_ending-audio.mov.webm"
+  },
   "/play/":
     "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edited-00796-perry.jpg.webp",
   "/sketches/":

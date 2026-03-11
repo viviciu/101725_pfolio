@@ -14,6 +14,7 @@ export default defineConfig({
         sketches: resolve(__dirname, "sketches/index.html"),
         c4d: resolve(__dirname, "c4d/index.html"),
         fable: resolve(__dirname, "fable/index.html"),
+        typographyAnimation: resolve(__dirname, "typographyAnimation/index.html"),
       },
     },
   },
