@@ -86,5 +86,11 @@
     
     <!-- <div id="app"></div> -->
     <script type="module" src="/src/main.js"></script>
+    <!-- VERCEL ANALYTICS INTEGRATION -->
+     <!-- https://vercel.com/docs/analytics/quickstart?framework=html&language=js#add-the-analytics-component-to-your-app -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </body>
 </html>
