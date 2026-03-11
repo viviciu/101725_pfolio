@@ -129,7 +129,7 @@ function buildGrid() {
       video.muted = true;
       video.loop = true;
       video.playsInline = true;
-      video.preload = "metadata";
+      video.preload = "auto";
       card.addEventListener("mouseenter", () => video.play());
       card.addEventListener("mouseleave", () => { video.pause(); video.currentTime = 0; });
       mediaWrap.appendChild(video);
