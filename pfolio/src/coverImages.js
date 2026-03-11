@@ -29,6 +29,8 @@ export const coverImages = {
     type: "video",
     src: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/cmini/comp_ending-audio.mov.webm"
   },
+  "/visionPro/":
+    "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edit-DSC07941.jpg.webp",
   "/play/":
     "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edited-00796-perry.jpg.webp",
   "/sketches/":

@@ -1,6 +1,8 @@
 import './style.css'
 import { initNavbar } from './navbar.js'
+import { initLazyVideos } from './lazyVideos.js'
 initNavbar()
+initLazyVideos()
 
 const modal = document.getElementById('modal')
 const modalContent = document.getElementById('modal-content')
