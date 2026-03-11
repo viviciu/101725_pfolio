@@ -15,6 +15,7 @@ export default defineConfig({
         c4d: resolve(__dirname, "c4d/index.html"),
         fable: resolve(__dirname, "fable/index.html"),
         typographyAnimation: resolve(__dirname, "typographyAnimation/index.html"),
+        visionPro: resolve(__dirname, "visionPro/index.html"),
       },
     },
   },

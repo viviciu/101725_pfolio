@@ -1,45 +1,26 @@
 import './style.css'
 import { initNavbar } from './navbar.js'
+import { initLazyVideos } from './lazyVideos.js'
 initNavbar({ showIndex: false })
-// import javascriptLogo from './javascript.svg'
-// import viteLogo from '/vite.svg'
-// import { setupCounter } from './counter.js'
 
-// document.querySelector('#app').innerHTML = `
-//   <div>
-//     <a href="https://vite.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `
-
-// setupCounter(document.querySelector('#counter'))
-
-
-// Cover images are defined in coverImages.js — edit that file to change them.
 import { coverImages } from "./coverImages.js";
 
-Object.values(coverImages).forEach((entry) => {
-  if (typeof entry === "object" && entry.type === "video") {
-    const link = document.createElement("link");
-    link.rel = "preload";
-    link.as = "video";
-    link.href = entry.src;
-    document.head.appendChild(link);
-  } else if (typeof entry === "string") {
-    new Image().src = entry;
-  }
-});
+const isMobile = /Mobi|Android/i.test(navigator.userAgent) ||
+  (navigator.maxTouchPoints > 0 && window.innerWidth < 1024);
+
+if (!isMobile) {
+  Object.values(coverImages).forEach((entry) => {
+    if (typeof entry === "object" && entry.type === "video") {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "video";
+      link.href = entry.src;
+      document.head.appendChild(link);
+    } else if (typeof entry === "string") {
+      new Image().src = entry;
+    }
+  });
+}
 
 /* ── List-view hover previews ── */
 
@@ -125,19 +106,26 @@ function buildGrid() {
 
     if (entry && typeof entry === "object" && entry.type === "video") {
       const video = document.createElement("video");
-      video.src = entry.src;
       video.muted = true;
       video.loop = true;
       video.playsInline = true;
-      video.preload = "auto";
-      card.addEventListener("mouseenter", () => video.play());
-      card.addEventListener("mouseleave", () => { video.pause(); video.currentTime = 0; });
+      video.preload = "none";
+      const source = document.createElement("source");
+      source.setAttribute("data-src", entry.src);
+      video.appendChild(source);
+      if (!isMobile) {
+        card.addEventListener("mouseenter", () => {
+          if (!source.src) { source.src = source.getAttribute("data-src"); video.load(); }
+          video.play();
+        });
+        card.addEventListener("mouseleave", () => { video.pause(); video.currentTime = 0; });
+      }
       mediaWrap.appendChild(video);
     } else if (entry && typeof entry === "string") {
       const img = document.createElement("img");
       img.src = entry;
       img.alt = title;
-      img.loading = "lazy";
+      img.loading = "eager";
       mediaWrap.appendChild(img);
     }
 
@@ -162,6 +150,9 @@ function buildGrid() {
 
   gridView.appendChild(wrapper);
 }
+
+buildGrid();
+initLazyVideos();
 
 /* ── Toggle logic ── */
 

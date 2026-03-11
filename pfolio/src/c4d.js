@@ -1,5 +1,6 @@
 import "./style.css";
 import { initNavbar } from "./navbar.js";
+import { initLazyVideos } from "./lazyVideos.js";
 initNavbar();
 import { c4dItems } from "./c4dItems.js";
 
@@ -29,9 +30,9 @@ function renderGrid() {
           : `<video
               class="w-full h-full object-cover translate-y-0 transition group-hover:translate-y-2 cursor-pointer"
               width="500" height="500"
-              autoplay loop muted playsinline
+              loop muted playsinline preload="none"
             >
-              <source src="${item.url}" type="video/${item.fileType}" />
+              <source data-src="${item.url}" type="video/${item.fileType}" />
             </video>`;
 
       return `
@@ -127,3 +128,4 @@ document.addEventListener("keydown", (e) => {
    ============================================= */
 
 renderGrid();
+initLazyVideos();

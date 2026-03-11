@@ -1,5 +1,6 @@
 import "./style.css";
 import { initNavbar } from "./navbar.js";
+import { initLazyVideos } from "./lazyVideos.js";
 initNavbar();
 import { items } from "./items.js";
 
@@ -35,9 +36,9 @@ function renderGrid() {
           : `<video
               class="w-full h-full object-cover translate-y-0 transition group-hover:translate-y-2 cursor-pointer"
               width="500" height="500"
-              autoplay loop muted playsinline
+              loop muted playsinline preload="none"
             >
-              <source src="${item.url}" type="video/${item.fileType}" />
+              <source data-src="${item.url}" type="video/${item.fileType}" />
             </video>`;
 
       return `
@@ -124,6 +125,7 @@ filters.addEventListener("click", (e) => {
   label.classList.add("clicked");
 
   renderGrid();
+  initLazyVideos();
 });
 
 // Grid clicks → open modal (or navigate if the item has a link)
@@ -157,3 +159,4 @@ document.addEventListener("keydown", (e) => {
    ============================================= */
 
 renderGrid();
+initLazyVideos();
