@@ -15,8 +15,20 @@
   <body>
     
 
-  <div class="flex items-center justify-center h-screen w-screen">
-    <ul class="tearsheets-list z-40 list-none">
+  <div class="view-toggle" id="view-toggle">
+    <button class="view-toggle-btn active" data-view="list" aria-label="List view">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="1.5" rx="0.5" fill="currentColor"/><rect x="1" y="7" width="14" height="1.5" rx="0.5" fill="currentColor"/><rect x="1" y="12" width="14" height="1.5" rx="0.5" fill="currentColor"/></svg>
+    </button>
+    <button class="view-toggle-btn" data-view="grid" aria-label="Grid view">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="6" y="1" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="11" y="1" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="1" y="6" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="6" y="6" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="11" y="6" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="1" y="11" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="6" y="11" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="11" y="11" width="4" height="4" rx="0.5" fill="currentColor"/></svg>
+    </button>
+  </div>
+
+  <div class="view-container" id="view-container">
+    <!-- LIST VIEW (default) -->
+    <div class="list-view active" id="list-view">
+      <div class="relative isolate flex items-center justify-center h-screen w-screen">
+        <ul class="tearsheets-list list-none ml-2">
   
       
       <li class="list-none w-[40rem] flex items-baseline">
@@ -37,6 +49,10 @@
         <a class="z-50 text-left font-ABCDiatypeReg font-normal" href="/elysium/">Elysium • Lunar Gala</a>
       </li>
       <li class="list-none w-[40rem] flex items-baseline">
+        <span class="label-meta">Motion</span>
+        <a class="z-50 text-left font-ABCDiatypeReg font-normal" href="/typographyAnimation/">Athelas • Typography Animation</a>
+      </li>
+      <li class="list-none w-[40rem] flex items-baseline">
         <span class="label-meta">Industrial Design</span>
         <a class="z-50 text-left font-ABCDiatypeReg font-normal" href="/mile10/">Mile 10 • OEM</a>
       </li>
@@ -49,10 +65,15 @@
         <a class="z-50 text-left font-normal" href="/sketches/">Sketches</a>
       </li>
   
-    </ul>
-    <div
-      class="tearsheet-preview fixed z-10 w-1/2 h-1/2 justify-center flex place-items-center">
+        </ul>
+        <div
+          class="tearsheet-preview absolute z-10 w-1/2 h-1/2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+        </div>
+      </div>
     </div>
+
+    <!-- GRID VIEW -->
+    <div class="grid-view" id="grid-view"></div>
   </div>
 
       

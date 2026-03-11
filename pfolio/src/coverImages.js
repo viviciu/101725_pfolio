@@ -21,9 +21,13 @@ export const coverImages = {
   },
   "/fable/": {
     type: "video",
-    src:"https://vstaicu-1.b-cdn.net/lg2026/cover-comp.mp4"
-  }
-  ,
+    src:"https://vstaicu-1.b-cdn.net/lg2026/final-act2scene4-carsblur-030926.mp4"
+    // src:"https://vstaicu-1.b-cdn.net/lg2026/cover-comp.mp4"
+  },
+  "/typographyAnimation/": {
+    type: "video",
+    src: "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/cmini/comp_ending-audio.mov.webm"
+  },
   "/play/":
     "https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/play/comp_edited-00796-perry.jpg.webp",
   "/sketches/":

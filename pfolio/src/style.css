@@ -513,14 +513,27 @@ button:focus-visible {
 }
 
 .tearsheet-preview {
-  position: fixed;
+  position: absolute;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
   pointer-events: none;
-  /* so it doesn't block hovers */
   transition: opacity 0.2s ease;
+}
+
+.tearsheets-list li {
+  position: relative;
+  z-index: 40;
+}
+
+.tearsheets-list li:hover {
+  mix-blend-mode: exclusion;
+}
+
+.tearsheets-list li:hover a,
+.tearsheets-list li:hover .label-meta {
+  color: white !important;
 }
 
 .tearsheet-preview.visible {
@@ -531,6 +544,138 @@ button:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   VIEW TOGGLE
+   ═══════════════════════════════════════════════════════════════ */
+.view-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 200;
+  display: flex;
+  gap: 2px;
+  background: rgba(240, 240, 240, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.view-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #999;
+  padding: 0;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.view-toggle-btn:hover {
+  color: #555;
+}
+
+.view-toggle-btn.active {
+  background: #fff;
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   VIEW CONTAINER
+   ═══════════════════════════════════════════════════════════════ */
+.list-view,
+.grid-view {
+  display: none;
+}
+
+.list-view.active,
+.grid-view.active {
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GRID VIEW
+   ═══════════════════════════════════════════════════════════════ */
+.grid-view {
+  padding: 4rem 0 0;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.grid-view-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2px;
+  row-gap: 2rem;
+}
+
+.grid-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+
+.grid-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: transparent;
+}
+
+.grid-card-media img,
+.grid-card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.grid-card-media.contain-half img {
+  object-fit: contain;
+  transform: scale(0.5);
+}
+
+.grid-card-info {
+  padding: 0.5rem 0 0;
+}
+
+.grid-card-title {
+  font-family: 'ABCDiatypeReg', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.grid-card-meta {
+  font-family: 'ABCDiatype', sans-serif;
+  font-size: 0.7rem;
+  color: #b0b0b0;
+  margin: 0.15rem 0 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .grid-view-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-view-inner {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Global crosshair cursor */
