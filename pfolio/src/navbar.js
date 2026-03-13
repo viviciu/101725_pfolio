@@ -99,9 +99,11 @@ I come from Romania > Baltimore > now based in Pittsburgh.
       <div class="col-start-1 row-start-3 text-sm font-ABCDiatypeReg">
         vstaicu@andrew.cmu.edu
         <br />
+        <a class="" href="https://www.instagram.com/vivi.icu/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <br />
         <a class="" href="https://www.linkedin.com/in/viviana-staicu-633aa2223/" target="_blank" rel="noopener noreferrer">Linkedin</a>
         <br />
-        <a class="" href="/public/vivianaStaicu_CV.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a class="" href="https://vstaicu-1.b-cdn.net/vivianaStaicu_CV.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
       </div>
 
     </div>

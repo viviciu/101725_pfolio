@@ -3,6 +3,13 @@ import { initNavbar } from './navbar.js'
 import { initLazyVideos } from './lazyVideos.js'
 initNavbar({ showIndex: false })
 
+const playLink = document.createElement("a");
+playLink.href = "/play/";
+playLink.className = "site-nav-link font-ABCDiatypeReg";
+playLink.textContent = "play";
+const infoBtn = document.getElementById("info-btn");
+infoBtn.before(playLink);
+
 import { coverImages } from "./coverImages.js";
 
 const isMobile = /Mobi|Android/i.test(navigator.userAgent) ||
@@ -168,9 +175,11 @@ toggleBtns.forEach((btn) => {
       listView.classList.remove("active");
       gridView.classList.add("active");
       buildGrid();
+      playLink.style.display = "";
     } else {
       gridView.classList.remove("active");
       listView.classList.add("active");
+      playLink.style.display = "none";
     }
   });
 });
