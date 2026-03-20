@@ -62,6 +62,7 @@ I come from Romania > Baltimore > now based in Pittsburgh.
           </div>
         </div>
         <!-- Augmented Perception Lab -->
+        <!--
         <div class="grid grid-cols-4 grid-rows-2">
           <div class="col-span-2">
             <div>Industrial Designer @ Augmented Perception Lab</div>
@@ -71,6 +72,7 @@ I come from Romania > Baltimore > now based in Pittsburgh.
             Spent a semester prototyping a device which helps those in distributed teams feel more connected.
           </div>
         </div>
+        -->
         <!-- Lunar Gala Web -->
         <div class="grid grid-cols-4 grid-rows-2">
           <div class="col-span-2">
@@ -109,6 +111,41 @@ I come from Romania > Baltimore > now based in Pittsburgh.
     </div>
   `;
   document.body.appendChild(overlay);
+
+  /* ── footer (skip on home page) ── */
+  if (!showIndex) return;
+
+  const projects = [
+    { name: "C4D Explorations", path: "/c4d/" },
+    { name: "Fable",            path: "/fable/" },
+    { name: "Elysium",          path: "/elysium/" },
+    { name: "Athelas",          path: "/typographyAnimation/" },
+    { name: "Book Focus",       path: "/visionPro/" },
+    { name: "Mile 10",          path: "/mile10/" },
+  ];
+
+  const currentPath = window.location.pathname.replace(/\/+$/, "") + "/";
+  const idx = projects.findIndex((p) => p.path === currentPath);
+
+  const prev = idx > 0 ? projects[idx - 1] : null;
+  const next = idx >= 0 && idx < projects.length - 1 ? projects[idx + 1] : null;
+
+  const footer = document.createElement("footer");
+  footer.className = "pb-12 px-4 md:px-8 text-sm font-ABCDiatypeReg";
+  footer.innerHTML = `
+    <div class="flex justify-between items-center">
+      <div>${prev ? `<a href="${prev.path}" class="hover:text-[#999] transition-colors duration-300">← ${prev.name}</a>` : ''}</div>
+      <div>
+        <a href="mailto:vstaicu@andrew.cmu.edu">vstaicu@andrew.cmu.edu</a>
+        <span class="mx-2">·</span>
+        <a href="https://www.linkedin.com/in/viviana-staicu-633aa2223/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+        <span class="mx-2">·</span>
+        <a href="https://www.instagram.com/vivi.icu/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+      <div>${next ? `<a href="${next.path}" class="hover:text-[#999] transition-colors duration-300">${next.name} →</a>` : ''}</div>
+    </div>
+  `;
+  document.body.appendChild(footer);
 
   /* ── toggle logic ── */
   const infoBtn  = document.getElementById("info-btn");
