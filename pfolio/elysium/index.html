@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <main class="block px-4">
+  <main class="block px-4 font-['ABCDiatypeReg']">
 
     <!-- ═══════════════════════════════════════════════════════════
          TITLE
@@ -26,15 +26,15 @@
       <!-- YAML BAR -->
       <div class="w-full grid grid-cols-2 lg:grid-cols-5 gap-[1.31rem] text-cap mb-4 lg:mb-0">
         <div class="pl-1 lg:flex lg:gap-1">
-          <div class="font-CMUSerif">Client </div>
+          <div class="font-['ABCDiatypeBol']">Client </div>
           <div class="font-ABCDiatypeReg font-bold">Lunar Gala</div>
         </div>
         <div class="lg:justify-self-end lg:flex lg:gap-1">
-          <div class="font-CMUSerif">Year </div>
+          <div class="font-['ABCDiatypeBol']">Year </div>
           <div class="font-ABCDiatypeReg font-bold">2025</div>
         </div>
         <div class="pl-1 col-start-1 col-span-2 lg:col-start-3 lg:flex lg:gap-1">
-          <div class="font-CMUSerif">Role </div>
+          <div class="font-['ABCDiatypeBol']">Role </div>
           <div class="font-ABCDiatypeReg font-bold">Co-head of Web, Creative Technologist</div>
         </div>
       </div>
@@ -42,20 +42,15 @@
       <!-- COVER VIDEO -->
       <div class="pb-[5.06rem]">
         <div class="h-fit w-full">
-          <video class="w-full h-auto" autoplay loop muted playsinline>
-            <source
-              src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/compressed_Elysium_cover_portfolio-trim.mov.webm"
-              type="video/webm"
-            />
-          </video>
+          <div style="padding:55.63% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1175368143?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Elysium_cover_portfolio-trim"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
         </div>
       </div>
 
       <!-- CONTEXT + METADATA (Context2 component) -->
-      <div class="lg:grid lg:grid-cols-5 grid-cols-3 gap-[5rem] lg:mb-0 mb-[5rem]">
+      <div class="lg:grid lg:grid-cols-5 grid-cols-3 gap-[5rem] lg:mb-0 mb-[5rem] mx-4">
         <!-- Left column: description -->
         <div class="lg:pb-[5rem] lg:mt-[3.5rem] mt-[2rem] mb-[3.06rem] w-full h-fit items-start col-span-3">
-          <div class="leading-p3 text-p font-SuisseWorks font-normal text-offBlack2">
+          <div class="leading-p3 text-p font-['ABCDiatypeReg'] font-normal text-offBlack2">
             <a
               href="https://2025.lunargala.org"
               class="relative group underline"
@@ -91,21 +86,21 @@
           <ul>
             <!-- Timeline -->
             <li class="grid grid-cols-2 gap-[1rem]">
-              <div class="font-SuisseWorks">Timeline</div>
-              <div class="font-ABCDiatypeReg font-bold">6 months</div>
+              <div class="font-['ABCDiatypeBol']">Timeline</div>
+              <div class=" font-bold">6 months</div>
             </li>
             <li class="h-4"><!-- gap --></li>
 
             <!-- Role -->
             <li class="grid grid-cols-2 gap-[1rem]">
-              <div class="font-SuisseWorks">Role</div>
+              <div class="font-['ABCDiatypeBol']">Role</div>
               <div class="font-ABCDiatypeReg font-bold">Co-head, Creative Technologist</div>
             </li>
             <li class="h-4"><!-- gap --></li>
 
             <!-- Tools -->
             <li class="grid grid-cols-2 gap-[1rem]">
-              <div class="font-SuisseWorks">Tools</div>
+              <div class="font-['ABCDiatypeBol']">Tools</div>
               <div class="font-ABCDiatypeReg font-bold text-offBlack">Three.js</div>
             </li>
             <li class="grid grid-cols-2 gap-[1rem]">
@@ -132,7 +127,7 @@
 
             <!-- Contributors -->
             <li class="grid grid-cols-2 gap-[1rem]">
-              <div class="font-SuisseWorks">Contributors</div>
+              <div class="font-['ABCDiatypeBol']">Contributors</div>
               <div class="font-ABCDiatypeReg font-bold text-offBlack">Suyeon Cha</div>
             </li>
             <li class="grid grid-cols-2 gap-[1rem]">
@@ -168,20 +163,18 @@
     <!-- ═══════════════════════════════════════════════════════════
          GLSL PARTICLE SYSTEM SECTION
          ═══════════════════════════════════════════════════════════ -->
-    <section>
-      <!-- Divider Line -->
-      <div class="bg-offBlack w-full h-[1px] mt-12"></div>
-      <p class="pt-2 indent-[1.75rem] uppercase text-offblack font-SFPro">
-        <span class="font-sans">&#9679;</span> HOME: GLSL Particle system
-      </p>
-
+    <section class="mx-4">
       <!-- Header -->
       <div class="py-[2.87rem] lg:grid lg:grid-cols-5 lg:gap-[5.06rem] w-full h-fit items-start">
         <h1 class="font-ABCDiatypeReg text-[3rem] leading-[3rem] tracking-tight col-span-2">
           How can particle motion encapsulate each act?
         </h1>
       </div>
-
+      <div class=" w-[55%] h-fit items-start pb-12">
+        <div class="font-['ABCDiatypeReg']  md:text-[1.125rem] leading-[1.25] ">
+          2025 was the first year LG introduced the concept of "acts" to the show. Each act encapsulates a different part of your journey, and I aimed for the particle system to reflect that essence. Emergence stems from the center, and ripples outwards like veins of life, Blossom radiates florally with calm fair curves, and Embrace creates a soft hug and communicates one coming 'full circle' at the end of the journey.
+        </div>
+      </div>
       <!-- Three Acts Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         <!-- Act I: Emergence -->
@@ -192,8 +185,8 @@
               type="video/webm"
             />
           </video>
-          <p class="pt-2 md:pt-4">
-            <span class="font-bold">Act I: Emergence</span>
+          <p class="pt-2 md:pt-4 font-['ABCDiatypeReg']  md:text-[1.125rem] leading-[1.25] ">
+            <span class="font-['ABCDiatypeBol']">Act I: Emergence</span>
             <br /><br />
             The dawn of your journey, brimming with hope, passion, and
             light. Untouched by the world's challenges, yet poised to
@@ -209,8 +202,8 @@
               type="video/webm"
             />
           </video>
-          <p class="pt-2 md:pt-4">
-            <span class="font-bold">Act II: Blossom</span>
+          <p class="pt-2 md:pt-4 font-['ABCDiatypeReg']  md:text-[1.125rem] leading-[1.25] ">
+            <span class="font-['ABCDiatypeBol']">Act II: Blossom</span>
             <br /><br />
             In the early steps of your journey, you flourish and grow. You
             conquer the new horizons, and you can see yourself blooming into
@@ -226,8 +219,8 @@
               type="video/webm"
             />
           </video>
-          <p class="pt-2 md:pt-4">
-            <span class="font-bold">Act IV: Embrace</span>
+          <p class="pt-2 md:pt-4 font-['ABCDiatypeReg']  md:text-[1.125rem] leading-[1.25] ">
+            <span class="font-['ABCDiatypeBol']  md:text-[1.125rem] leading-[1.25] ">Act IV: Embrace</span>
             <br /><br />
             You have walked far, encountering all the pitfalls and flaws of
             the world, therefore exposing the flaws of you. You have come to
@@ -238,11 +231,68 @@
       </div>
     </section>
 
+    <section class="mx-4">
+<!-- https://www.youtube.com/@akella_ -->
+    <!-- Divider Line -->
+    <div class="bg-offBlack w-full h-[1px] mt-12"></div>
+    <p class="pt-2 indent-[1.75rem] uppercase text-offblack font-SFPro">
+      <span class="font-sans">&#9679;</span> GLSL Process
+    </p>
+    <section class="flex gap-2 items-stretch pt-12">
+      <!-- <video class="flex-1 min-w-0 h-full object-cover" autoplay loop muted playsinline>
+        <source
+          src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/compressed_glsl-experiments-1.mov.webm"
+          type="video/webm"
+        />
+      </video> -->
+      <video class="flex-1 min-w-0 h-full object-cover" autoplay loop muted playsinline>
+        <source
+          src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/compressed_particlesZoomedIn-interaction-experiment-trim.mov.webm"
+          type="video/webm"
+        />
+      </video>
+      <video class="flex-1 min-w-0 h-full object-cover" autoplay loop muted playsinline>
+        <source
+          src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/compressed_glsl-experiments-2.mov.webm"
+          type="video/webm"
+        />
+      </video>
+      <video class="flex-1 min-w-0 h-full object-cover" autoplay loop muted playsinline>
+        <source
+          src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/compressed_glsl-experiments-3.mov.webm"
+          type="video/webm"
+        />
+      </video>
+      </section>
+      <div class=" w-[55%] h-fit items-start pb-12 pt-12">
+        <div class="font-['ABCDiatypeReg']  md:text-[1.125rem] leading-[1.25] ">
+          I learned how to get the particle system started from <a href="https://www.youtube.com/@akella_" target="_blank" rel="noopener noreferrer" class="underline">Yuri Artiukuh</a> on YouTube. Once I got a simple ring up and running, I started digging into the Fragment shaders and line by line altering the operations and values to explore what behaviors were possible. Once I logged what I could do, such as changing speed, scale, and number of radii the particles loop around, I could get more intentional with how the motion acted.
+          <br /><br />
+          Integration into the main site was the biggest challenge oddly enough. Getting the 3js scene to be interactive while maintaining the UI interactivity in the DOM caused conflicts. At this point launch date was approaching fast, and a lot of back and forth with Cursor AI helped it pull through. I found vibecoding to be of little help in 2025 for GLSL, but as of 2026 it can produce some somewhat sucessful visuals to get started.
+        </div>
+      </div>
+    </section>
+
     <!-- ═══════════════════════════════════════════════════════════
          ASSETS SECTION
          ═══════════════════════════════════════════════════════════ -->
-    <section>
+    <section class="mx-28">
       <div class="h-[10rem]"></div>
+
+      <div class="bg-offBlack w-full h-[1px] mt-12"></div>
+      <p class="pt-2 indent-[1.75rem] uppercase text-offblack font-SFPro">
+        <span class="font-sans">&#9679;</span> Instagram Launch Promo
+      </p>
+      <div class="h-[3.33rem]"></div>
+      <div class="w-[25%] h-auto mx-auto">
+        <!-- <video controls autoplay playsinline>
+          <source
+            src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/comp_webLaunchReel-v3-wordmark.mp4.webm"
+            type="video/webm"
+          />
+        </video> -->
+        <div style="padding:177.78% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1175366676?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="LAUNCHREEL-comp_webLaunchReel-v3-wordmark.mp4"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+      </div>
 
       <!-- Divider Line -->
       <div class="bg-offBlack w-full h-[1px] mt-12"></div>
@@ -255,23 +305,10 @@
       <section class="w-full flex flex-wrap gap-[0.5rem]">
         <!-- Row 1: promo reel + preloader -->
         <div class="w-full gap-[0.5rem] flex justify-end">
-          <div class="w-[33%] h-auto">
-            <video controls autoplay playsinline>
-              <source
-                src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/comp_webLaunchReel-v3-wordmark.mp4.webm"
-                type="video/webm"
-              />
-            </video>
-            <p class="flex justify-center text-offBlack3">Site launch promo reel</p>
-          </div>
-          <div class="w-[66%] h-auto">
-            <video class="w-full" controls autoplay playsinline muted>
-              <source
-                src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/compressed_xiao-preloader-4_1_2-800px.mp4.webm"
-                type="video/webm"
-              />
-            </video>
-            <p class="flex justify-center text-offBlack3">Site preloader — Touchdesigner</p>
+          
+          <div class="w-full h-auto">
+            <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1175367254?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="elysium-site-preloader"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+            <p class="flex justify-center font-['ABCDiatypeReg'] text-gray-300">Site preloader — Touchdesigner</p>
           </div>
         </div>
 
@@ -284,7 +321,7 @@
                 type="video/webm"
               />
             </video>
-            <p class="flex justify-center text-offBlack3">Conceptual archive preloader</p>
+            <p class="flex justify-center font-['ABCDiatypeReg'] text-gray-300">Archive preloader — A site to preserve the process.</p>
           </div>
           <div class="w-[33%] h-auto">
             <video autoplay loop muted playsinline class="w-full">
@@ -326,13 +363,13 @@
     <!-- ═══════════════════════════════════════════════════════════
          PROCESS SECTION
          ═══════════════════════════════════════════════════════════ -->
-    <section>
+    <section class="mx-28">
       <div class="h-[10rem]"></div>
 
       <!-- Divider Line -->
       <div class="bg-offBlack w-full h-[1px] mt-12"></div>
       <p class="pt-2 indent-[1.75rem] uppercase text-offblack font-SFPro">
-        <span class="font-sans">&#9679;</span> PROCESS
+        <span class="font-sans">&#9679;</span>Visual language PROCESS
       </p>
 
       <div class="h-[3.33rem]"></div>
@@ -393,30 +430,8 @@
           decoding="async"
           class="w-full h-auto"
         />
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/compressed_particlesZoomedIn-interaction-experiment-trim.mov.webm"
-            type="video/webm"
-          />
-        </video>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/compressed_glsl-experiments-1.mov.webm"
-            type="video/webm"
-          />
-        </video>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/compressed_glsl-experiments-2.mov.webm"
-            type="video/webm"
-          />
-        </video>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://vstaicu-portfolio-assets.s3.us-east-2.amazonaws.com/elysium/compressed_glsl-experiments-3.mov.webm"
-            type="video/webm"
-          />
-        </video>
+        
+        
       </div>
     </section>
 
