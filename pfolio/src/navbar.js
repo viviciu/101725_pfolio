@@ -112,6 +112,47 @@ I come from Romania > Baltimore > now based in Pittsburgh.
   `;
   document.body.appendChild(overlay);
 
+  /* ── toggle logic ── */
+  const infoBtn  = document.getElementById("info-btn");
+
+  nav.classList.add("transition-opacity", "duration-300");
+
+  function openAbout() {
+    overlay.classList.remove("opacity-0", "pointer-events-none");
+    overlay.classList.add("opacity-100", "pointer-events-auto");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    nav.classList.add("opacity-0", "pointer-events-none");
+  }
+
+  function closeAbout() {
+    overlay.classList.remove("opacity-100", "pointer-events-auto");
+    overlay.classList.add("opacity-0", "pointer-events-none");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    nav.classList.remove("opacity-0", "pointer-events-none");
+  }
+
+  infoBtn.addEventListener("click", openAbout);
+
+  let downX = 0;
+  let downY = 0;
+  overlay.addEventListener("mousedown", (e) => { downX = e.clientX; downY = e.clientY; });
+
+  overlay.addEventListener("click", (e) => {
+    const dx = Math.abs(e.clientX - downX);
+    const dy = Math.abs(e.clientY - downY);
+    if (dx > 5 || dy > 5) return;
+    if (e.target.closest("a")) return;
+    closeAbout();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("opacity-100")) {
+      closeAbout();
+    }
+  });
+
   /* ── footer (skip on home page) ── */
   if (!showIndex) return;
 
@@ -146,55 +187,4 @@ I come from Romania > Baltimore > now based in Pittsburgh.
     </div>
   `;
   document.body.appendChild(footer);
-
-  /* ── toggle logic ── */
-  const infoBtn  = document.getElementById("info-btn");
-
-
-  // add a quick fade transition to the navbar itself
-  nav.classList.add("transition-opacity", "duration-300");
-
-  function openAbout() {
-    overlay.classList.remove("opacity-0", "pointer-events-none");
-    overlay.classList.add("opacity-100", "pointer-events-auto");
-    overlay.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    // fade navbar out
-    nav.classList.add("opacity-0", "pointer-events-none");
-  }
-
-  function closeAbout() {
-    overlay.classList.remove("opacity-100", "pointer-events-auto");
-    overlay.classList.add("opacity-0", "pointer-events-none");
-    overlay.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-    // fade navbar back in
-    nav.classList.remove("opacity-0", "pointer-events-none");
-  }
-
-  infoBtn.addEventListener("click", openAbout);
-
-
-  // track mousedown so we can distinguish a click from a drag-to-select
-  let downX = 0;
-  let downY = 0;
-  overlay.addEventListener("mousedown", (e) => { downX = e.clientX; downY = e.clientY; });
-
-  // clicking anywhere on the overlay closes it — UNLESS:
-  //  • the click is on a link
-  //  • the mouse moved (user was selecting text)
-  overlay.addEventListener("click", (e) => {
-    const dx = Math.abs(e.clientX - downX);
-    const dy = Math.abs(e.clientY - downY);
-    if (dx > 5 || dy > 5) return;         // dragged — ignore
-    if (e.target.closest("a")) return;     // let links do their thing
-    closeAbout();
-  });
-
-  // close on Escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && overlay.classList.contains("opacity-100")) {
-      closeAbout();
-    }
-  });
 }
