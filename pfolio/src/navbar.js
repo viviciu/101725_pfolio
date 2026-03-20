@@ -31,10 +31,10 @@ export function initNavbar({ showIndex = true } = {}) {
 
       <!-- bio -->
       <div class="col-start-1 col-span-3 row-span-1 text-sm">
-Hi! I'm Viviana, and I'm a a multidisciplinary designer studying Industrial Design and HCI at Carnegie Mellon University. I've been into image-making for a pretty long time, and my fascination with light lead me to love visualization and CGI. In ID, I'm interested in subjects around calm technology, and everyday carry items that make life just a little more delightful.
+Hi! I'm Viviana, and I'm a a multidisciplinary designer studying Design and HCI at Carnegie Mellon University. I got into photography in high school, and my fascination with light lead me to love visualization and CGI.
 <br /><br />
 I enjoy learning new processes that force me to think differently, which has lead me to become a chronic side quester:
-I've worked on websites, directed a spectulative app promotion film, and worked at an AI startup aiming to spark more authentic human connection.
+I've worked on websites, directed a spectulative app promotion film, and did some design engineering at an AI startup aiming to spark more authentic human connection.
 <br /><br />
 I come from Romania > Baltimore > now based in Pittsburgh.
       </div>
