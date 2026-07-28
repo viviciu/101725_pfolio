@@ -35,45 +35,15 @@
     font-style: normal;
   }
 
-  /* SuisseWorks */
+  /* SuisseIntl */
   @font-face {
-    font-family: 'SuisseWorks';
-    src: url(../public/assets/fonts/suisseWorks/SuisseWorks-Regular-WebTrial.woff2) format('woff');
+    font-family: 'SuisseIntl';
+    src: url(/fonts/SuisseIntl-Regular.otf) format('opentype');
     font-weight: 400;
     font-style: normal;
   }
-  @font-face {
-    font-family: 'SuisseWorks';
-    src: url(../public/assets/fonts/suisseWorks/SuisseWorks-RegularItalic-WebTrial.woff2) format('woff');
-    font-weight: 400;
-    font-style: italic;
-  }
+  
 
-  /* Suisse */
-  @font-face {
-    font-family: 'Suisse';
-    src: url(../public/assets/fonts/Suiss/SuisseIntlTrial-Book.otf) format('opentype');
-    font-weight: 400;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Suisse';
-    src: url(../public/assets/fonts/Suiss/SuisseIntlTrial-Medium.otf) format('opentype');
-    font-weight: 500;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Suisse';
-    src: url(../public/assets/fonts/Suiss/SuisseIntlTrial-SemiBold.otf) format('opentype');
-    font-weight: 600;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Suisse';
-    src: url(../public/assets/fonts/Suiss/SuisseIntlTrial-Bold.otf) format('opentype');
-    font-weight: 700;
-    font-style: normal;
-  }
 
   /* Helvetica Neue */
   /* THIN */
@@ -219,6 +189,7 @@
   --ls-h1: -0.13019rem;
 
   --fs-cap: 14px; /* captions, used to be 0.8rem */
+  --fs-12: 12px; 
   --fs-p: 1.2rem;
   --lh-p: 1.625rem;
   --lh-cap: 0.9rem;

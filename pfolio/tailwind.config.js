@@ -5,7 +5,10 @@ export default {
     "./**/index.html",
     "./src/**/*.{js,ts}",
   ],
-  theme: {
+  theme:
+  {
+    
+
     extend: {
       // Adds custom colors to existing pallette. Now we don't have to type hex codes. Just say "gray" or "blue".
       colors: {
@@ -57,6 +60,7 @@ export default {
         "9xl": "3.88rem",
         h1: "var(--fs-h1)",
         cap: "var(--fs-cap)",
+        twelve: "var(--fs-12)",
         p: "var(--fs-p)",
         // h4pp == PP Neue montreal website large p text, their h4
         h4pp: "2.1875rem",
@@ -88,7 +92,11 @@ export default {
         // Suisse: ["Suisse"],
 
         Helvetica: ["Helvetica-Neue"],
-        SuisseWorks: ["SuisseWorks"],
+        // Tailwind v4's scanner ignores class names with uppercase letters,
+        // so camelCase keys above never generate utilities — use these
+        // lowercase aliases instead (font-suisse, font-diatype)
+        suisse: ["SuisseIntl"],
+        diatype: ["ABCDiatypeReg"],
         SFProDisplay: ["SFProDisplay"],
         LabMono: ["LabMono"],
         MonumentGroteskSemiMono: ["MonumentGroteskSemiMono"],
