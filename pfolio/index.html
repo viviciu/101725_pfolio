@@ -5,9 +5,6 @@
     <link rel="icon" type="image/svg+xml" href="/whitecircle.svg" />
     <link rel="icon" type="image/png" href="/whitecircle.png" />
 
-    <!-- <link rel="icon" href="/bluedot.png" />
-    <link rel="mask-icon" href="/bluedot.png" color="#000000"> -->
-
     <!-- UNDER CONSTRUCTION TOGGLE — set to false to restore the normal homepage -->
     <script>
       const UNDER_CONSTRUCTION = false;
@@ -19,81 +16,13 @@
     <title>Viviana Staicu</title>
   </head>
   <body>
-    
+    <!-- Landing: project strips. The name + selected-works sidebar is injected by src/sidebar.js -->
+    <main class="landing">
+      <section class="landing-strips" id="landing-strips"></section>
+    </main>
 
-  <div class="view-toggle" id="view-toggle">
-    <button class="view-toggle-btn" data-view="list" aria-label="List view">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="1.5" rx="0.5" fill="currentColor"/><rect x="1" y="7" width="14" height="1.5" rx="0.5" fill="currentColor"/><rect x="1" y="12" width="14" height="1.5" rx="0.5" fill="currentColor"/></svg>
-    </button>
-    <button class="view-toggle-btn active" data-view="grid" aria-label="Grid view">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="6" y="1" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="11" y="1" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="1" y="6" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="6" y="6" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="11" y="6" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="1" y="11" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="6" y="11" width="4" height="4" rx="0.5" fill="currentColor"/><rect x="11" y="11" width="4" height="4" rx="0.5" fill="currentColor"/></svg>
-    </button>
-  </div>
-
-  <div class="view-container" id="view-container">
-    <!-- LIST VIEW (default) -->
-    <div class="list-view" id="list-view">
-      <div class="relative isolate flex items-center justify-center h-screen w-screen">
-        <ul class="tearsheets-list list-none ml-2">
-  
-      
-      <li class="list-none w-[40rem] flex items-baseline">
-        <span class="label-meta">Visualization • Locked</span>
-        <a class="z-50 text-left font-ABCDiatypeReg font-normal pointer-events-none" href="/seaglass/">Seaglass • Gentle Systems</a>
-      </li>
-      <!-- GAP -->
-      <li class="list-none w-[40rem] flex items-baseline">
-        <span class="label-meta">3D Motion</span>
-        <a class="z-50 text-left font-ABCDiatypeReg font-normal" href="/c4d/">C4D Explorations</a>
-      </li>
-      <li class="list-none w-[40rem] flex items-baseline">
-        <span class="label-meta">3D Motion</span>
-        <a class="z-50 text-left font-ABCDiatypeReg font-normal" href="/fable/">Fable • Lunar Gala 2026</a>
-      </li>
-      <li class="list-none w-[40rem] flex items-baseline">
-        <span class="label-meta">GLSL Shaders</span>
-        <a class="z-50 text-left font-ABCDiatypeReg font-normal" href="/elysium/">Elysium • Lunar Gala 2025</a>
-      </li>
-      <li class="list-none w-[40rem] flex items-baseline">
-        <span class="label-meta">Typography Animation</span>
-        <a class="z-50 text-left font-ABCDiatypeReg font-normal" href="/typographyAnimation/">Athelas</a>
-      </li>
-      <li class="list-none w-[40rem] flex items-baseline">
-        <span class="label-meta">UX/UI | Demo Video</span>
-        <a class="z-50 text-left font-ABCDiatypeReg font-normal" href="/visionPro/">Book Focus for Vision Pro</a>
-      </li>
-      <li class="list-none w-[40rem] flex items-baseline">
-        <span class="label-meta">Industrial Design</span>
-        <a class="z-50 text-left font-ABCDiatypeReg font-normal" href="/mile10/">Mile 10 • OEM</a>
-      </li>
-      <li class="pt-5 flex items-baseline">
-        <span class="label-meta"></span>
-        <a class="cursor-pointer z-50 text-left font-ABCDiatypeReg font-normal" href="/play/">Play</a>
-      </li>
-      <li class="pb-5 flex items-baseline">
-        <span class="label-meta"></span>
-        <a class="z-50 text-left font-normal" href="/sketches/">Sketches</a>
-      </li>
-  
-        </ul>
-        <div
-          class="tearsheet-preview absolute z-10 w-1/2 h-1/2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-        </div>
-      </div>
-    </div>
-
-    <!-- GRID VIEW -->
-    <div class="grid-view active" id="grid-view"></div>
-  </div>
-
-      
-    
-    
-    
-    <!-- <div id="app"></div> -->
     <script type="module" src="/src/main.js"></script>
     <!-- VERCEL ANALYTICS INTEGRATION -->
-     <!-- https://vercel.com/docs/analytics/quickstart?framework=html&language=js#add-the-analytics-component-to-your-app -->
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>

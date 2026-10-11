@@ -455,196 +455,140 @@ button:focus-visible {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   TEARSHEETS
+   SIDEBAR + 7-COLUMN GRID  (edit placement/size here)
+   The sidebar is fixed to the screen on EVERY page. It occupies
+   columns 1–2 of a 7-column grid; page content starts at column 3.
    ═══════════════════════════════════════════════════════════════ */
-.tearsheets-list li {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+:root {
+  --page-pad: 32px;                 /* left/right page margin */
+  --col-gap: 15px;                  /* gap between the 7 columns */
+  --side-top: 1rem;                 /* sidebar distance from top */
+  --side-bottom: 2rem;              /* sidebar distance from bottom (list sits here) */
+  --side-font: 0.875rem;            /* name + list size */
+  --col-w: calc((100vw - 2 * var(--page-pad) - 6 * var(--col-gap)) / 7);
+  --side-w: calc(2 * var(--col-w) + var(--col-gap));        /* sidebar width = 2 columns */
+  --content-left: calc(var(--page-pad) + 2 * var(--col-w) + 2 * var(--col-gap)); /* where column 3 starts */
 }
 
-.label-meta {
-  font-family: 'ABCDiatype', sans-serif;
-  font-size: 0.75rem;
-  color: #b0b0b0;
-  white-space: nowrap;
-  width: 10rem;
-  flex-shrink: 0;
-  text-align: right;
-  margin-right: 2rem;
-  padding-right: 2rem;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
+/* Every page makes room for the fixed sidebar */
+body.has-sidebar {
+  padding-left: var(--content-left);
 }
 
-.label-meta.visible {
-  opacity: 1;
-}
-
-.tearsheet-preview {
-  position: absolute;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.tearsheets-list li {
-  position: relative;
-  z-index: 40;
-}
-
-.tearsheets-list li:hover {
-  mix-blend-mode: exclusion;
-}
-
-.tearsheets-list li:hover a,
-.tearsheets-list li:hover .label-meta {
-  color: white !important;
-}
-
-.tearsheet-preview.visible {
-  opacity: 1;
-}
-
-.tearsheet-preview-video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   VIEW TOGGLE
-   ═══════════════════════════════════════════════════════════════ */
-.view-toggle {
+.site-sidebar {
   position: fixed;
-  top: 1rem;
-  right: 1.5rem;
-  z-index: 200;
-  display: flex;
-  gap: 2px;
-  background: rgba(240, 240, 240, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 999px;
-  padding: 3px;
+  z-index: 110;                     /* above .site-nav (100) so its blur doesn't fade the name */
+  top: var(--side-top);
+  bottom: var(--side-bottom);
+  left: var(--page-pad);
+  width: var(--side-w);
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* col 1 = name, col 2 = list */
+  column-gap: var(--col-gap);
+  font-size: var(--side-font);
+  line-height: 1.3;
+  pointer-events: none;             /* only the links catch clicks */
 }
+.site-sidebar a { pointer-events: auto; }
 
-.view-toggle-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: none;
-  border-radius: 999px;
-  background: transparent;
-  color: #999;
-  padding: 0;
-  transition: color 0.2s ease, background 0.2s ease;
-}
-
-.view-toggle-btn:hover {
-  color: #555;
-}
-
-.view-toggle-btn.active {
-  background: #fff;
+.site-sidebar-name {
+  grid-column: 1;
+  align-self: start;
   color: #333;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-weight: 400;
 }
+
+.site-sidebar-list {
+  grid-column: 2;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.site-sidebar-head {
+  color: #b0b0b0;
+  font-size: 0.75rem;
+  margin: 0 0 0.5rem;
+}
+
+.site-sidebar-item {
+  color: #b0b0b0;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+.site-sidebar-item:hover,
+.site-sidebar-item.active { color: #1f1f1f; }
+
+.site-sidebar-more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+}
+.site-sidebar-more a { color: #b0b0b0; font-weight: 400; }
+.site-sidebar-more a:hover,
+.site-sidebar-more a.active { color: #1f1f1f; }
 
 /* ═══════════════════════════════════════════════════════════════
-   VIEW CONTAINER
+   LANDING — project strips (columns 3–7)
    ═══════════════════════════════════════════════════════════════ */
-.list-view,
-.grid-view {
-  display: none;
+.landing-strips {
+  padding: 1rem var(--page-pad) 4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
-.list-view.active,
-.grid-view.active {
-  display: block;
-}
+.strip-figure { margin: 0; scroll-margin-top: 1rem; }
 
-/* ═══════════════════════════════════════════════════════════════
-   GRID VIEW
-   ═══════════════════════════════════════════════════════════════ */
-.grid-view {
-  padding: 4rem 0 0;
-  margin-left: 16rem;
-  margin-right: 16rem;
+.strip {
+  display: flex;
+  aspect-ratio: 16 / 9;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  background: #ececec;
+  cursor: e-resize !important;
 }
+.strip::-webkit-scrollbar { display: none; }
+.strip.dragging { scroll-snap-type: none; cursor: grabbing !important; }
 
-.grid-view-inner {
-  columns: 3;
-  column-gap: 6px;
-}
-
-.grid-card {
-  display: inline-block;
-  width: 100%;
-  text-decoration: none;
-  color: inherit;
-  overflow: hidden;
-  break-inside: avoid;
-  margin-bottom: 2px;
-}
-
-.grid-card-media {
-  width: 100%;
-  overflow: hidden;
-  background: transparent;
+.strip-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  scroll-snap-align: start;
   line-height: 0;
 }
-
-.grid-card-media img,
-.grid-card-media video {
+.strip-slide img,
+.strip-slide video {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  pointer-events: none;
 }
 
-.grid-card-media.contain-half img {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.grid-card-info {
-  padding: 0.5rem 0 0;
-}
-
-.grid-card-title {
-  font-family: 'ABCDiatypeReg', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
+.strip-label {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
   color: #333;
-  margin: 0;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
-.grid-card-meta {
-  font-family: 'ABCDiatype', sans-serif;
-  font-size: 0.7rem;
-  color: #b0b0b0;
-  margin: 0.15rem 0 0;
-  line-height: 1.4;
-}
-
-@media (max-width: 768px) {
-  .grid-view-inner {
-    columns: 2;
+/* Tablet/phone: no room for a side column — sidebar becomes a normal block at the top */
+@media (max-width: 900px) {
+  body.has-sidebar { padding-left: 0; }
+  .site-sidebar {
+    position: static;
+    width: auto;
+    margin: 3.5rem 16px 1.5rem;
+    pointer-events: auto;
   }
-}
-
-@media (max-width: 480px) {
-  .grid-view-inner {
-    columns: 1;
-  }
+  .site-sidebar-list { align-self: start; }
+  .landing-strips { padding: 0 16px 3rem; gap: 2rem; }
 }
 
 /* Global crosshair cursor */

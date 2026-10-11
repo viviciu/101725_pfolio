@@ -3,7 +3,11 @@
  * Injects a fixed top nav with "index" link and "info" button
  * that toggles a full-screen about overlay.
  */
+import { initSidebar } from "./sidebar.js";
+
 export function initNavbar({ showIndex = true } = {}) {
+  initSidebar();
+
   /* ── nav bar ── */
   const nav = document.createElement("nav");
   nav.className = "site-nav";

@@ -1,186 +1,89 @@
 import './style.css'
 import { initNavbar } from './navbar.js'
-import { initLazyVideos } from './lazyVideos.js'
+import { projects } from './landingProjects.js'
+import { trackActiveStrip } from './sidebar.js'
 initNavbar({ showIndex: false })
 
-const playLink = document.createElement("a");
-playLink.href = "/play/";
-playLink.className = "site-nav-link font-ABCDiatypeReg";
-playLink.textContent = "play";
-const infoBtn = document.getElementById("info-btn");
-infoBtn.before(playLink);
+const strips = document.getElementById("landing-strips");
 
-import { coverImages } from "./coverImages.js";
+/* ── Project strips ── */
 
-const isMobile = /Mobi|Android/i.test(navigator.userAgent) ||
-  (navigator.maxTouchPoints > 0 && window.innerWidth < 1024);
+projects.forEach((p, i) => {
+  const figure = document.createElement("figure");
+  figure.className = "strip-figure";
+  figure.id = `strip-${i}`;
 
-if (!isMobile) {
-  Object.values(coverImages).forEach((entry) => {
-    if (typeof entry === "object" && entry.type === "video") {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "video";
-      link.href = entry.src;
-      document.head.appendChild(link);
-    } else if (typeof entry === "string") {
-      new Image().src = entry;
-    }
-  });
-}
+  const strip = document.createElement("a");
+  strip.href = p.href;
+  strip.className = "strip";
+  strip.setAttribute("aria-label", `Open ${p.title}`);
 
-/* ── List-view hover previews ── */
-
-const items = document.querySelectorAll(".tearsheets-list li");
-const preview = document.querySelector(".tearsheet-preview");
-
-items.forEach((item) => {
-  const link = item.querySelector("a");
-  const href = link ? link.getAttribute("href") : null;
-  const entry = coverImages[href] || item.getAttribute("data-image");
-
-  item.addEventListener("mouseenter", () => {
-    const meta = item.querySelector(".label-meta");
-    if (meta) meta.classList.add("visible");
-    if (!entry) return;
-
-    if (typeof entry === "object" && entry.type === "video") {
-      preview.style.backgroundImage = "";
-      let video = preview.querySelector("video");
-      if (!video || video.getAttribute("data-src") !== entry.src) {
-        preview.innerHTML = "";
-        video = document.createElement("video");
-        video.src = entry.src;
-        video.setAttribute("data-src", entry.src);
-        video.muted = true;
-        video.loop = true;
-        video.playsInline = true;
-        video.className = "tearsheet-preview-video";
-        preview.appendChild(video);
-      }
-      video.currentTime = 0;
-      video.play();
+  p.slides.forEach((s, j) => {
+    const slide = document.createElement("div");
+    slide.className = "strip-slide";
+    if (s.type === "video") {
+      const v = document.createElement("video");
+      v.muted = true;
+      v.loop = true;
+      v.playsInline = true;
+      v.preload = "none";
+      v.dataset.src = s.src;
+      v.draggable = false;
+      slide.appendChild(v);
     } else {
-      const existingVideo = preview.querySelector("video");
-      if (existingVideo) existingVideo.remove();
-      preview.style.backgroundImage = `url(${entry})`;
-    }
-
-    preview.classList.add("visible");
-  });
-
-  item.addEventListener("mouseleave", () => {
-    const meta = item.querySelector(".label-meta");
-    if (meta) meta.classList.remove("visible");
-    preview.classList.remove("visible");
-    const video = preview.querySelector("video");
-    if (video) {
-      video.pause();
-    }
-  });
-});
-
-/* ── Grid view builder ── */
-
-const gridView = document.getElementById("grid-view");
-const listView = document.getElementById("list-view");
-
-function buildGrid() {
-  if (gridView.querySelector(".grid-view-inner")) return;
-
-  const wrapper = document.createElement("div");
-  wrapper.className = "grid-view-inner";
-
-  items.forEach((item) => {
-    const link = item.querySelector("a");
-    if (!link) return;
-    const href = link.getAttribute("href");
-    const title = link.textContent.trim();
-    const metaEl = item.querySelector(".label-meta");
-    const meta = metaEl ? metaEl.textContent.trim() : "";
-    const entry = coverImages[href];
-
-    const card = document.createElement("a");
-    card.href = href;
-    card.className = "grid-card";
-    if (link.classList.contains("pointer-events-none")) {
-      card.style.pointerEvents = "none";
-    }
-
-    const mediaWrap = document.createElement("div");
-    mediaWrap.className = "grid-card-media";
-    if (href === "/mile10/") mediaWrap.classList.add("contain-half");
-
-    if (entry && typeof entry === "object" && entry.type === "video") {
-      const video = document.createElement("video");
-      video.muted = true;
-      video.loop = true;
-      video.playsInline = true;
-      video.preload = "none";
-      const source = document.createElement("source");
-      source.setAttribute("data-src", entry.src);
-      video.appendChild(source);
-      if (!isMobile) {
-        card.addEventListener("mouseenter", () => {
-          if (!source.src) { source.src = source.getAttribute("data-src"); video.load(); }
-          video.play();
-        });
-        card.addEventListener("mouseleave", () => { video.pause(); video.currentTime = 0; });
-      }
-      mediaWrap.appendChild(video);
-    } else if (entry && typeof entry === "string") {
       const img = document.createElement("img");
-      img.src = entry;
-      img.alt = title;
-      img.loading = "eager";
-      mediaWrap.appendChild(img);
+      img.src = s.src;
+      img.alt = `${p.title} ${j + 1}`;
+      img.draggable = false;
+      img.loading = i === 0 && j === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+      slide.appendChild(img);
     }
-
-    const info = document.createElement("div");
-    info.className = "grid-card-info";
-
-    const titleEl = document.createElement("p");
-    titleEl.className = "grid-card-title";
-    titleEl.textContent = title;
-
-    const metaTag = document.createElement("p");
-    metaTag.className = "grid-card-meta";
-    metaTag.textContent = meta;
-
-    info.appendChild(titleEl);
-    if (meta) info.appendChild(metaTag);
-
-    card.appendChild(mediaWrap);
-    card.appendChild(info);
-    wrapper.appendChild(card);
+    strip.appendChild(slide);
   });
 
-  gridView.appendChild(wrapper);
-}
+  const caption = document.createElement("figcaption");
+  caption.className = "strip-label font-ABCDiatypeReg";
+  caption.textContent = p.title;
 
-buildGrid();
-initLazyVideos();
+  figure.appendChild(strip);
+  figure.appendChild(caption);
+  strips.appendChild(figure);
 
-/* ── Toggle logic ── */
-
-const toggleBtns = document.querySelectorAll(".view-toggle-btn");
-
-toggleBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const view = btn.dataset.view;
-    toggleBtns.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    if (view === "grid") {
-      listView.classList.remove("active");
-      gridView.classList.add("active");
-      buildGrid();
-      playLink.style.display = "";
-    } else {
-      gridView.classList.remove("active");
-      listView.classList.add("active");
-      playLink.style.display = "none";
-    }
+  /* Mouse drag-to-scroll; a drag must not count as a click into the project. */
+  let down = false, startX = 0, startLeft = 0, moved = false;
+  strip.addEventListener("pointerdown", (e) => {
+    if (e.pointerType !== "mouse") return;
+    down = true; moved = false;
+    startX = e.clientX; startLeft = strip.scrollLeft;
+    strip.classList.add("dragging");
   });
+  window.addEventListener("pointermove", (e) => {
+    if (!down) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 5) moved = true;
+    if (moved) strip.scrollLeft = startLeft - dx;
+  });
+  window.addEventListener("pointerup", () => {
+    if (!down) return;
+    down = false;
+    strip.classList.remove("dragging");
+  });
+  strip.addEventListener("click", (e) => { if (moved) { e.preventDefault(); moved = false; } });
 });
 
+/* ── Videos: load + play only when visible inside their strip ── */
+
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(({ target: v, isIntersecting }) => {
+    if (isIntersecting) {
+      if (v.dataset.src) { v.src = v.dataset.src; v.removeAttribute("data-src"); v.load(); }
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll(".strip-slide video").forEach((v) => videoObserver.observe(v));
+
+trackActiveStrip();
