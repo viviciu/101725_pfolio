@@ -6,16 +6,16 @@
 import { initSidebar } from "./sidebar.js";
 
 export function initNavbar({ showIndex = true } = {}) {
-  initSidebar();
+  const sidebar = initSidebar();
 
   /* ── nav bar ── */
   const nav = document.createElement("nav");
-  nav.className = "site-nav";
+  nav.className = "site-sidebar-nav";
   nav.innerHTML = `
     ${showIndex ? '<a href="/" class="site-nav-link font-ABCDiatypeReg">index</a>' : ''}
     <button id="info-btn" class="site-nav-link font-ABCDiatypeReg" type="button">info</button>
   `;
-  document.body.prepend(nav);
+  sidebar.querySelector("#site-nav-slot").appendChild(nav);   // sits under the name
 
   /* ── about overlay ── */
   const overlay = document.createElement("div");
@@ -119,14 +119,15 @@ I come from Romania > Baltimore > now based in Pittsburgh.
   /* ── toggle logic ── */
   const infoBtn  = document.getElementById("info-btn");
 
-  nav.classList.add("transition-opacity", "duration-300");
+  // The about overlay covers the top-left, so the whole sidebar steps aside while it is open.
+  sidebar.classList.add("transition-opacity", "duration-300");
 
   function openAbout() {
     overlay.classList.remove("opacity-0", "pointer-events-none");
     overlay.classList.add("opacity-100", "pointer-events-auto");
     overlay.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-    nav.classList.add("opacity-0", "pointer-events-none");
+    sidebar.classList.add("opacity-0", "pointer-events-none");
   }
 
   function closeAbout() {
@@ -134,7 +135,7 @@ I come from Romania > Baltimore > now based in Pittsburgh.
     overlay.classList.add("opacity-0", "pointer-events-none");
     overlay.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
-    nav.classList.remove("opacity-0", "pointer-events-none");
+    sidebar.classList.remove("opacity-0", "pointer-events-none");
   }
 
   infoBtn.addEventListener("click", openAbout);

@@ -483,7 +483,7 @@ body.has-sidebar {
   left: var(--page-pad);
   width: var(--side-w);
   display: grid;
-  grid-template-columns: 1fr 1fr;   /* col 1 = name, col 2 = list */
+  grid-template-columns: 1fr 1fr;   /* col 1 = the whole top-left list; col 2 is empty */
   column-gap: var(--col-gap);
   font-size: var(--side-font);
   line-height: 1.3;
@@ -491,19 +491,35 @@ body.has-sidebar {
 }
 .site-sidebar a { pointer-events: auto; }
 
-.site-sidebar-name {
+/* top-left stack: name, then index / info underneath — reads as a little list */
+.site-sidebar-top {
   grid-column: 1;
   align-self: start;
-  color: #333;
-  font-weight: 400;
-}
-
-.site-sidebar-list {
-  grid-column: 2;
-  align-self: end;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
+}
+.site-sidebar-name {
+  color: #333;
+  font-weight: 400;
+}
+.site-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+}
+.site-sidebar-nav .site-nav-link {
+  font-size: var(--side-font);
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.site-sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 1.5rem;               /* space between info and "Selected works" */
 }
 
 .site-sidebar-head {
@@ -531,53 +547,6 @@ body.has-sidebar {
 .site-sidebar-more a:hover,
 .site-sidebar-more a.active { color: #1f1f1f; }
 
-/* ═══════════════════════════════════════════════════════════════
-   LANDING — project strips (columns 3–7)
-   ═══════════════════════════════════════════════════════════════ */
-.landing-strips {
-  padding: 1rem var(--page-pad) 4rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.strip-figure { margin: 0; scroll-margin-top: 1rem; }
-
-.strip {
-  display: flex;
-  aspect-ratio: 16 / 9;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  background: #ececec;
-  cursor: e-resize !important;
-}
-.strip::-webkit-scrollbar { display: none; }
-.strip.dragging { scroll-snap-type: none; cursor: grabbing !important; }
-
-.strip-slide {
-  flex: 0 0 100%;
-  height: 100%;
-  scroll-snap-align: start;
-  line-height: 0;
-}
-.strip-slide img,
-.strip-slide video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-}
-
-.strip-label {
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  color: #333;
-  line-height: 1.3;
-}
-
 /* Tablet/phone: no room for a side column — sidebar becomes a normal block at the top */
 @media (max-width: 900px) {
   body.has-sidebar { padding-left: 0; }
@@ -588,7 +557,6 @@ body.has-sidebar {
     pointer-events: auto;
   }
   .site-sidebar-list { align-self: start; }
-  .landing-strips { padding: 0 16px 3rem; gap: 2rem; }
 }
 
 /* Global crosshair cursor */
@@ -599,4 +567,141 @@ html, body, button, input, textarea, select, [role="button"] {
 /* Allow modal media to override the crosshair */
 #modal-media {
   cursor: e-resize !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SITE-WIDE FONT — everything is Arial, except the landing page
+   (body.landing-page), which has its own typography below.
+   !important so it wins over the per-element font classes
+   (ABCDiatype, SuisseWorks, SFPro, …) used across the pages.
+   To go back, delete this block.
+   ═══════════════════════════════════════════════════════════════ */
+:root { --site-font: Arial, "Helvetica Neue", Helvetica, sans-serif; }
+html, body:not(.landing-page), body:not(.landing-page) *,
+body:not(.landing-page) *::before, body:not(.landing-page) *::after,
+button, input, textarea, select {
+  font-family: var(--site-font) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   LANDING — one project at a time (index.html + src/main.js)
+   Layout sits on a 7-column grid: --c is one column.
+   Description + contact start at column 5.
+   ═══════════════════════════════════════════════════════════════ */
+.landing-page {
+  --c: calc(100vw / 7);
+  /* Colors come from the project's theme (see THEMES below); these are the "light" defaults. */
+  --lp-bg: #e0e0df;
+  --lp-ink: #1e0d02;                /* name + tagline */
+  --lp-grey: #96908b;               /* project numbers, open title + subtitle, contact row */
+  --lp-desc: #7d7d7d;               /* description */
+  --lp-font-serif: "Suisse Works", "Times New Roman", Times, serif;   /* name + open title */
+  --lp-font-sans: "SuisseIntl", Arial, "Helvetica Neue", sans-serif;
+  background: var(--lp-bg);
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--lp-font-sans);
+  font-size: 13px;
+  color: var(--lp-grey);
+}
+/* THEMES — colors measured from the sample landing pages. A project picks one with
+   `theme: "light" | "paper" | "dark"` in src/landingProjects.js (main.js sets body[data-theme]). */
+.landing-page[data-theme="light"] {   /* grey stage (the Sea Glass sample) */
+  --lp-bg: #e0e0df; --lp-ink: #1e0d02; --lp-grey: #96908b; --lp-desc: #7d7d7d;
+}
+.landing-page[data-theme="paper"] {   /* near-white stage (the brown-slices sample) */
+  --lp-bg: #f1f1f1; --lp-ink: #1e0d02; --lp-grey: #a19a96; --lp-desc: #878787;
+}
+.landing-page[data-theme="dark"] {    /* black stage (wireframe / particles / red samples): all-white text */
+  --lp-bg: #070707; --lp-ink: #ffffff; --lp-grey: #ffffff; --lp-desc: #c1c1c1;
+}
+
+.landing-page a { color: inherit; font-weight: 400; text-decoration: none; }
+.landing-page a:hover { color: var(--lp-ink); }
+
+/* header layer: only the links/buttons catch clicks, the rest passes through to the stage */
+.lp-header, .lp-contact { position: fixed; left: 0; right: 0; z-index: 5; pointer-events: none; }
+.lp-header { top: 0; }
+.lp-header a, .lp-header button, .lp-contact a { pointer-events: auto; }
+
+.lp-brand {
+  position: absolute; top: 13px; left: 10px;
+  display: flex; align-items: baseline; gap: 15px;
+  color: var(--lp-ink);
+}
+.lp-name { font-family: var(--lp-font-serif); font-size: 15px; color: var(--lp-ink); }
+.lp-name:hover { color: var(--lp-grey); }
+.lp-tag { font-size: 13px; }
+
+/* nav: ONE row that starts at a fixed x (3.64 columns). Numbers sit in a line; the open project
+   replaces its own number with title + subtitle, so "1" never moves. */
+.lp-nav { position: absolute; top: 11px; left: calc(var(--c) * 3.64); display: flex; align-items: baseline; gap: 13px; }
+.lp-num {
+  background: none; border: 0; padding: 0;
+  font: inherit; color: var(--lp-grey); cursor: pointer !important;
+}
+.lp-num:hover { color: var(--lp-ink); }
+.lp-open { margin: 0 23px 0 17px; display: flex; align-items: baseline; gap: 15px; white-space: nowrap; flex-shrink: 0; }
+.lp-title { font-family: var(--lp-font-serif); font-size: 15px; }
+.lp-sub { font-size: 13px; }
+
+.lp-progress {
+  position: absolute; top: 11px; left: calc(var(--c) * 5.5);
+  width: calc(var(--c) * 0.5);
+  display: flex; justify-content: space-between;
+  color: var(--lp-ink);
+}
+.lp-dashes { display: flex; gap: 0.5em; }
+.lp-dashes span { opacity: 0.4; }      /* dimmed vs the open project's dash — works on any theme */
+.lp-dashes .on { opacity: 1; }
+
+.lp-desc {
+  position: absolute; top: 41px; left: calc(var(--c) * 4);
+  width: calc(var(--c) * 1.9);
+  margin: 0;
+  font-size: 15px; line-height: 16px; letter-spacing: -0.01em;
+  color: var(--lp-desc);
+  white-space: pre-line;
+  pointer-events: none;
+}
+
+/* stage: full screen, click targets; media centered */
+.lp-stage {
+  position: fixed; inset: 0; z-index: 1;
+  display: grid; place-items: center;
+  cursor: default;
+}
+.lp-stage.is-left  { cursor: w-resize; }
+.lp-stage.is-right { cursor: e-resize; }
+/* Media always FILLS its frame (object-fit: cover), so export assets at the frame's ratio
+   and nothing gets cropped. Frame is chosen per project with `frame:` in landingProjects.js. */
+.lp-media {
+  grid-area: 1 / 1;
+  object-fit: cover;
+  opacity: 0; visibility: hidden;
+  pointer-events: none;
+}
+.lp-media.full   { width: 100vw; height: 100vh; }                       /* whole screen */
+.lp-media.center { height: 54vh; width: calc(54vh * 410 / 487); }       /* 410×487 at 1512×903 = the Sea Glass sample */
+.lp-media.active { opacity: 1; visibility: visible; }
+
+.lp-contact {
+  bottom: 4px; left: calc(var(--c) * 4); right: auto;
+  display: grid; grid-template-columns: repeat(3, var(--c));
+  font-size: 11px;
+}
+.lp-lbl { margin-right: 0.6em; }
+
+@media (max-width: 900px) {
+  .lp-header { position: fixed; padding: 12px 12px 0; }
+  .lp-brand, .lp-nav, .lp-progress, .lp-desc { position: static; }
+  .lp-brand { flex-wrap: wrap; gap: 4px 12px; }
+  .lp-nav { margin-top: 10px; flex-wrap: wrap; }
+  .lp-open { margin: 0 8px; flex-wrap: wrap; white-space: normal; gap: 4px 10px; }
+  .lp-progress { display: none; }
+  .lp-desc { width: auto; margin-top: 10px; font-size: 14px; }
+  .lp-media.center { height: 36vh; width: calc(36vh * 410 / 487); margin-top: 18vh; }
+  .lp-contact { left: 12px; right: 12px; grid-template-columns: 1fr; gap: 2px; font-size: 11px; }
 }

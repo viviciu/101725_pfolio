@@ -161,6 +161,31 @@ You can also set it in the S3 web console under Metadata.
 - **Videos (23 `.webm` files on S3):** use `preload="none"` or `preload="metadata"` on any video below the first screen, plus a `poster` image (a still frame shown before playback). jeanxcrj.com does this.
 - **Fade images in as they load,** as jeanxcrj.com does. A missing image then looks intentional rather than broken.
 
+### 7. Blur-up placeholders (the "blurry, then sharp" effect)
+
+Seen on folchstudio.com/#archive: many WebPs and videos on one page, yet every tile shows something instantly. The technique is called a **blur-up** and uses **LQIP** (low-quality image placeholders).
+
+**What their site actually does** (checked in their page data, Oct 2026):
+- Every image carries a tiny `lqip`: a ~20 px-wide JPEG, about **400 bytes**, written inline as `data:image/jpeg;base64,…`. The page has ~205 of them.
+- It also carries a `blurHash`, a ~30-character text code that describes the same blur. Either one works.
+- The CMS (Sanity) generates both automatically at upload.
+- Because the placeholders ship inside the page data, they show **instantly** with no extra request.
+- Stretching a 20 px image to full size is what makes it look Gaussian-blurred. The real image loads on top and replaces it. (The exact fade CSS wasn't checked. Treat the fade as likely, not confirmed.)
+- Their videos are plain MP4 links from Vimeo. How they handle a poster frame wasn't checked.
+
+**Why it feels fast:** the layout and a blurred preview appear immediately, and the heavy files load behind them. The placeholders cost almost nothing.
+
+**How to do it here, with no CMS:**
+1. Generate a ~20 px-wide blurred copy of each image, once. Add this to `scripts/optimize-images.mjs` (the `sharp` script from step 2), for example `sharp(file).resize(20).blur().jpeg({ quality: 40 })`.
+2. Store the result as a base64 string next to each slide in `src/landingProjects.js`, e.g. `{ type: "image", src, lqip: "data:image/jpeg;base64,…" }`.
+3. Show it as the frame's background (`background-size: cover`, plus a little CSS `filter: blur()` so it stays smooth when stretched).
+4. Put the real `<img>` on top with `opacity: 0`. When it fires `load`, fade it to `opacity: 1`.
+5. **Videos:** use a blurred first frame as the placeholder, the same way. Pair it with the `preload="none"` + `poster` advice in step 6.
+
+Keep the inline data small: roughly 400 bytes per image, so 30 images adds about 12 KB.
+
+This is the same idea as the "fade images in as they load" extra in step 6, with a real preview behind the fade instead of a blank box.
+
 ---
 
 ## Checklist
@@ -173,3 +198,4 @@ You can also set it in the S3 web console under Metadata.
 - [ ] Add `srcset` / `sizes` / `width` / `height` / `decoding="async"` to the `<img>` tags
 - [ ] Hero image: `fetchpriority="high"`, no lazy loading
 - [ ] Check in Chrome DevTools → Network tab, filtered to images, with the phone view turned on: phones should download the 640 versions
+- [ ] Blur-up placeholders: generate ~20 px LQIP per image, store inline, fade the real image in on `load` (step 7)

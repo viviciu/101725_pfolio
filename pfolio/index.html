@@ -15,11 +15,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Viviana Staicu</title>
   </head>
-  <body>
-    <!-- Landing: project strips. The name + selected-works sidebar is injected by src/sidebar.js -->
-    <main class="landing">
-      <section class="landing-strips" id="landing-strips"></section>
-    </main>
+  <body class="landing-page">
+    <!-- Full-screen stage: shows the open project's media, centered.
+         Click right half = next project, left half = previous. -->
+    <div class="lp-stage" id="lp-stage" aria-label="Project viewer"></div>
+
+    <!-- HEADER: name + tagline (top-left), project numbers + open title, progress, description -->
+    <header class="lp-header">
+      <div class="lp-brand">
+        <a class="lp-name" href="/">Viviana Staicu</a>
+        <span class="lp-tag">3D Motion + Visual Production</span>
+      </div>
+      <nav class="lp-nav" id="lp-nav" aria-label="Projects"></nav>
+      <div class="lp-progress" id="lp-progress" aria-hidden="true"></div>
+      <p class="lp-desc" id="lp-desc"></p>
+    </header>
+
+    <!-- CONTACT ROW: sits on the same columns as the description -->
+    <footer class="lp-contact">
+      <a href="mailto:vstaicu@andrew.cmu.edu"><span class="lp-lbl">c.</span>vstaicu@andrew.cmu.edu</a>
+      <a href="https://www.linkedin.com/in/viviana-staicu-633aa2223/" target="_blank" rel="noopener noreferrer"><span class="lp-lbl">li.</span>link.in/vstaicu/</a>
+      <a href="https://www.instagram.com/vivi.icu/" target="_blank" rel="noopener noreferrer"><span class="lp-lbl">ig.</span>instagram/vivi_icu/</a>
+    </footer>
 
     <script type="module" src="/src/main.js"></script>
     <!-- VERCEL ANALYTICS INTEGRATION -->
