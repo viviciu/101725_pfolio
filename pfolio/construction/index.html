@@ -44,7 +44,8 @@
       .eq-bar:nth-child(4) { animation: eq-d 1.9s ease-in-out -1.4s infinite; }
       /* Must come AFTER the shorthands above: the animation shorthand
          resets play-state to "running", so re-pause it here */
-      .eq-bar:nth-child(n) { animation-play-state: paused; }
+         /* I COMMENTED THE BELOW OUT TO CAUSE MUSIC BARS TO ALWAYS ANIMATE, INCITE INTERACTION */
+      /* .eq-bar:nth-child(n) { animation-play-state: paused; } */
       @keyframes eq-a {
         0%   { transform: scaleY(0.35); }
         23%  { transform: scaleY(0.9); }
@@ -92,15 +93,17 @@
 
 
         <audio id="bgm" src="/audio/elevator-trim.mp3" preload="none" loop></audio>
-        <button id="bgm-toggle" class="eq-button mt-4" aria-label="Play elevator music" title=":)">
-          <span class="eq-bar"></span>
-          <span class="eq-bar"></span>
-          <span class="eq-bar"></span>
-          <span class="eq-bar"></span>
-        </button>
-        <p id="bgm-label" class="md:hidden font-diatype font-normal text-xs text-[#b0b0b0]">play</p>
+        <div class="group relative mt-4">
+          <button id="bgm-toggle" class="eq-button" aria-label="Play elevator music" title=":)">
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+          </button>
+          <p id="bgm-label" class="pointer-events-none absolute left-1/2 top-full -translate-x-1/2 font-suisse font-normal text-cap text-offBlack md:opacity-0 md:transition-opacity md:duration-150 md:group-hover:opacity-100 md:group-focus-within:opacity-100">play</p>
+        </div>
       </div>
-      <p class="pb-2 text-center font-suisse font-normal text-[13px] text-offBlack">09.01.26</p>
+      <p class="pb-2 text-center font-suisse font-normal text-[13px] text-offBlack">returning 10.19.26</p>
     </div>
 
     <script>
