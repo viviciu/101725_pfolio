@@ -42,6 +42,13 @@
     font-weight: 400;
     font-style: normal;
   }
+  /* SuisseWorks */
+  @font-face {
+    font-family: 'SuisseWorks';
+    src: url(/fonts/SuisseWorks-Regular-WebTrial.woff2) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
   
 
 
@@ -597,7 +604,7 @@ button, input, textarea, select {
   --lp-ink: #1e0d02;                /* name + tagline */
   --lp-grey: #96908b;               /* project numbers, open title + subtitle, contact row */
   --lp-desc: #7d7d7d;               /* description */
-  --lp-font-serif: "Suisse Works", "Times New Roman", Times, serif;   /* name + open title */
+  --lp-font-serif: "SuisseWorks", serif;   /* name + open title */
   --lp-font-sans: "SuisseIntl", Arial, "Helvetica Neue", sans-serif;
   background: var(--lp-bg);
   height: 100vh;
@@ -644,24 +651,14 @@ button, input, textarea, select {
 }
 .lp-num:hover { color: var(--lp-ink); }
 .lp-open { margin: 0 23px 0 17px; display: flex; align-items: baseline; gap: 15px; white-space: nowrap; flex-shrink: 0; }
-.lp-title { font-family: var(--lp-font-serif); font-size: 15px; }
-.lp-sub { font-size: 13px; }
-
-.lp-progress {
-  position: absolute; top: 11px; left: calc(var(--c) * 5.5);
-  width: calc(var(--c) * 0.5);
-  display: flex; justify-content: space-between;
-  color: var(--lp-ink);
-}
-.lp-dashes { display: flex; gap: 0.5em; }
-.lp-dashes span { opacity: 0.4; }      /* dimmed vs the open project's dash — works on any theme */
-.lp-dashes .on { opacity: 1; }
+.lp-title { font-family: var(--lp-font-serif); font-size: 16px; }
+.lp-sub { font-size: 16px; }
 
 .lp-desc {
   position: absolute; top: 41px; left: calc(var(--c) * 4);
-  width: calc(var(--c) * 1.9);
+  width: calc(var(--c) * 1.82);       /* ~393px at 1512: breaks lines where the mockup does */
   margin: 0;
-  font-size: 15px; line-height: 16px; letter-spacing: -0.01em;
+  font-size: 16px; line-height: 18px;   /* 14 = Figma size; 16px line pitch measured from the mockup */
   color: var(--lp-desc);
   white-space: pre-line;
   pointer-events: none;
@@ -696,11 +693,10 @@ button, input, textarea, select {
 
 @media (max-width: 900px) {
   .lp-header { position: fixed; padding: 12px 12px 0; }
-  .lp-brand, .lp-nav, .lp-progress, .lp-desc { position: static; }
+  .lp-brand, .lp-nav, .lp-desc { position: static; }
   .lp-brand { flex-wrap: wrap; gap: 4px 12px; }
   .lp-nav { margin-top: 10px; flex-wrap: wrap; }
   .lp-open { margin: 0 8px; flex-wrap: wrap; white-space: normal; gap: 4px 10px; }
-  .lp-progress { display: none; }
   .lp-desc { width: auto; margin-top: 10px; font-size: 14px; }
   .lp-media.center { height: 36vh; width: calc(36vh * 410 / 487); margin-top: 18vh; }
   .lp-contact { left: 12px; right: 12px; grid-template-columns: 1fr; gap: 2px; font-size: 11px; }

@@ -3,7 +3,6 @@ import { projects } from './landingProjects.js'
 
 const stage = document.getElementById("lp-stage");
 const nav = document.getElementById("lp-nav");
-const progress = document.getElementById("lp-progress");
 const desc = document.getElementById("lp-desc");
 
 let current = -1;
@@ -69,15 +68,6 @@ function renderNav() {
   nav.replaceChildren(...projects.map((_, i) => (i === current ? openBlock(i) : numberButton(i))));
 }
 
-/* ── Progress bracket: [ - - - - - - ], the open project's dash is dark ── */
-
-function renderProgress() {
-  progress.innerHTML =
-    "<span>[</span><span class=\"lp-dashes\">" +
-    projects.map((_, i) => `<span class="${i === current ? "on" : ""}">-</span>`).join("") +
-    "</span><span>]</span>";
-}
-
 /* ── Open a project (closes the previous one) ── */
 
 function show(i) {
@@ -100,7 +90,6 @@ function show(i) {
   document.body.dataset.theme = projects[i].theme || "light";
   desc.textContent = projects[i].desc;
   renderNav();
-  renderProgress();
   history.replaceState(null, "", `#${i + 1}`);
 
   // warm up the neighbours' images so the next click feels instant
